@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="alternate" href="/atom.xml" title="xiaxm" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"right","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="今天去面试了滴滴，没有通过第二轮面试，内心十分遗憾。面试官最后对我说：“要自信点，不要总是说‘我觉得xxx’、‘我认为xxx’，这样会让人觉得你是在猜测，即使你可能知道也会觉得你了解不够深入。 还有就是大家对于“了解”或是“知道”的程度不一致，这样会导致我以为你很了解，其实你只是知道。这样的话可能考察的是你不擅长的领域，也就无法检测初面试者最真实的能力。 觉得很遗憾的是，我内心觉得这是一个很好的机">
+<meta name="keywords" content="面试">
+<meta property="og:type" content="article">
+<meta property="og:title" content="滴滴面试总结">
+<meta property="og:url" content="https:&#x2F;&#x2F;xiaxm.com&#x2F;2019&#x2F;12&#x2F;16&#x2F;didi&#x2F;index.html">
+<meta property="og:site_name" content="xiaxm">
+<meta property="og:description" content="今天去面试了滴滴，没有通过第二轮面试，内心十分遗憾。面试官最后对我说：“要自信点，不要总是说‘我觉得xxx’、‘我认为xxx’，这样会让人觉得你是在猜测，即使你可能知道也会觉得你了解不够深入。 还有就是大家对于“了解”或是“知道”的程度不一致，这样会导致我以为你很了解，其实你只是知道。这样的话可能考察的是你不擅长的领域，也就无法检测初面试者最真实的能力。 觉得很遗憾的是，我内心觉得这是一个很好的机">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-12-18T14:55:48.735Z">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://xiaxm.com/2019/12/16/didi/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>滴滴面试总结 | xiaxm</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">xiaxm</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">Learning and Labor</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="https://xiaxm.com/2019/12/16/didi/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="xiaxm.com">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="xiaxm">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          滴滴面试总结
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-12-16 22:25:31" itemprop="dateCreated datePublished" datetime="2019-12-16T22:25:31+08:00">2019-12-16</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>今天去面试了滴滴，没有通过第二轮面试，内心十分遗憾。面试官最后对我说：“要自信点，不要总是说‘我觉得xxx’、‘我认为xxx’，这样会让人觉得你是在猜测，即使你可能知道也会觉得你了解不够深入。</p>
+<p>还有就是大家对于“了解”或是“知道”的程度不一致，这样会导致我以为你很了解，其实你只是知道。这样的话可能考察的是你不擅长的领域，也就无法检测初面试者最真实的能力。</p>
+<p>觉得很遗憾的是，我内心觉得这是一个很好的机会，一个独角兽的公司核心业务的开发的工作机会，没有把握住。不过仍旧非常感谢面试我的两位同仁，你们非常专业，也非常平易近人，是我对滴滴留下了比较好的印象。与我而言，我会快速补充相关知识，有机会我还要试一试。</p>
+<p>现罗列一些我无法完全回答上来或回答的不好的问题，作为这次面试的总结。</p>
+<h2 id="问题整理"><a href="#问题整理" class="headerlink" title="问题整理"></a>问题整理</h2><p>1 GRPC &amp; GRPC怎么实现 （网络各层协议）</p>
+<pre><code>GRPC仅仅写过Demo，没有实际使用经验，不应该回答了解，应该回答“不知道”。“了解”导致所有的问题都围绕GRPC展开，让面试进入我不熟悉的技术领域。</code></pre><p>2 若干个有序的数组，merge成一个有序的数组</p>
+<pre><code>典型的归并排序的思想。但是当时没有写出来。直接使用方案是合并后冒泡确认顺序，事后思考下，即使这种方案，也不用每次合并都排序，所有现场作出的答案远远不是最优解。</code></pre><p>3 时针分针在12点整相交，下一次相交在什么时刻</p>
+<pre><code>回答的是1:05:10。应该是错误的。当时觉得面试可能没戏了。脑子很乱，无法捋清楚思路，导致回答失败。</code></pre><p>4 ping</p>
+<pre><code>回答除了icmp，和网络层。但是条理不够清楚。</code></pre><p>5 要自信 回答问题要确切</p>
+<p>6 golang gc</p>
+<pre><code>这个了解的不够，所有无法回答</code></pre><p>7 两个文档（存储手机号）比较里面重复的内容（手机号）</p>
+<pre><code>我觉得有很多种方式。
+
+1 写程序。可以读取文件内容之后循环对比
+
+2 SQL。将文件读取到数据库中，通过SQL比较
+
+3 Redis。 将文件内容作为Key存储到Redis，判断是否存在相同的Key
+
+4 直接用命令行。 无法直接写出命令行，导致回答失败</code></pre><p>8 如何设计一个高可用的系统</p>
+<pre><code>没有系统性的思路。提供的方案都是比较具体的事项，不够全面。</code></pre><p>9 浏览器输入网址后发生了什么</p>
+<pre><code>大体回答了所有了解的过程。但是不够连贯，总是想到哪说到哪</code></pre><p>10 Mysql中执行一条SQL是如何处理的</p>
+<pre><code>这个是凭借印象回答的  SQL解析  缓存  查询引擎</code></pre><p>11 开放性问题 你自己在工作中的最优实现</p>
+<pre><code>回答的不好 本来打算讲解完整的系统构成，中途被打断，所以没有很完整的叙述下去。需要总结提炼关键的点，尽可能减少叙述的时间。</code></pre><h2 id="答案整理"><a href="#答案整理" class="headerlink" title="答案整理"></a>答案整理</h2><h3 id="第二题：若干个有序的数组，merge成一个有序的数组"><a href="#第二题：若干个有序的数组，merge成一个有序的数组" class="headerlink" title="第二题：若干个有序的数组，merge成一个有序的数组"></a>第二题：若干个有序的数组，merge成一个有序的数组</h3><h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><p>若干个有序的数组合并，表明需要借助有序的属性，使合并后算法复杂度降低。和归并排序相识的解法。两两归并降低维度，递归直至生成最后的数组，此为最优解。</p>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 递归调用</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Sort</span><span class="params">(arrList [][]<span class="keyword">int</span>)</span> [][]<span class="title">int</span></span> &#123;</span><br><span class="line">	newList := [][]<span class="keyword">int</span>&#123;&#125;</span><br><span class="line">	<span class="keyword">if</span> <span class="built_in">len</span>(arrList)%<span class="number">2</span> &gt; <span class="number">0</span> &#123;</span><br><span class="line">		arrList = <span class="built_in">append</span>(arrList, []<span class="keyword">int</span>&#123;&#125;)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> k, _ := <span class="keyword">range</span> arrList &#123;</span><br><span class="line">		<span class="keyword">if</span> k%<span class="number">2</span> == <span class="number">1</span> &#123;</span><br><span class="line">			newList = <span class="built_in">append</span>(newList, MergeSort(arrList[k<span class="number">-1</span>], arrList[k]))</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> <span class="built_in">len</span>(newList) &gt; <span class="number">1</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> Sort(newList)</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> newList</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将两个有序数组合并成一个有序数组</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">MergeSort</span><span class="params">(a1, a2 []<span class="keyword">int</span>)</span> []<span class="title">int</span></span> &#123;</span><br><span class="line">	a1Pos, a2Pos := <span class="number">0</span>, <span class="number">0</span></span><br><span class="line">	a := []<span class="keyword">int</span>&#123;&#125;</span><br><span class="line">	<span class="comment">// for i := 1; i &lt;= len(a1)+len(a2); i++ &#123;</span></span><br><span class="line">	<span class="keyword">for</span> &#123;</span><br><span class="line">		<span class="keyword">if</span> <span class="built_in">len</span>(a1) &gt; a1Pos &amp;&amp; <span class="built_in">len</span>(a2) &gt; a2Pos &#123;</span><br><span class="line">			item := <span class="number">0</span></span><br><span class="line">			a1Pos, a2Pos, item = GetMinItem(a1, a2, a1Pos, a2Pos)</span><br><span class="line">			a = <span class="built_in">append</span>(a, item)</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			log.Println(a1Pos, a2Pos)</span><br><span class="line">			<span class="keyword">if</span> <span class="built_in">len</span>(a1) &gt; a1Pos &#123;</span><br><span class="line">				<span class="comment">//</span></span><br><span class="line">				<span class="keyword">for</span> k1, v1 := <span class="keyword">range</span> a1 &#123;</span><br><span class="line">					<span class="keyword">if</span> k1 &gt;= a1Pos &#123;</span><br><span class="line">						a = <span class="built_in">append</span>(a, v1)</span><br><span class="line">						a1Pos++</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125; <span class="keyword">else</span> <span class="keyword">if</span> <span class="built_in">len</span>(a2) &gt; a2Pos &#123;</span><br><span class="line">				<span class="comment">//</span></span><br><span class="line">				<span class="keyword">for</span> k2, v2 := <span class="keyword">range</span> a2 &#123;</span><br><span class="line">					<span class="keyword">if</span> k2 &gt;= a2Pos &#123;</span><br><span class="line">						a = <span class="built_in">append</span>(a, v2)</span><br><span class="line">						a2Pos++</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">				<span class="keyword">break</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> a</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 比较输出当前位置最小的值</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">GetMinItem</span><span class="params">(a1, a2 []<span class="keyword">int</span>, a1Pos, a2Pos <span class="keyword">int</span>)</span> <span class="params">(a1pos, a2pos, val <span class="keyword">int</span>)</span></span> &#123;</span><br><span class="line">	<span class="keyword">if</span> a1[a1Pos] &gt; a2[a2Pos] &#123;</span><br><span class="line">		<span class="keyword">return</span> a1Pos, a2Pos + <span class="number">1</span>, a2[a2Pos]</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> a1Pos + <span class="number">1</span>, a2Pos, a1[a1Pos]</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h4><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">TestMerge</span><span class="params">(t *testing.T)</span></span> &#123;</span><br><span class="line">	<span class="keyword">var</span> a := [][]<span class="keyword">int</span>&#123;</span><br><span class="line">		[]<span class="keyword">int</span>&#123;<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">9</span>, <span class="number">968</span>, <span class="number">1034</span>, <span class="number">2039</span>&#125;,</span><br><span class="line">        []<span class="keyword">int</span>&#123;<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>, <span class="number">10</span>, <span class="number">124</span>, <span class="number">345</span>, <span class="number">676</span>&#125;,</span><br><span class="line">        []<span class="keyword">int</span>&#123;<span class="number">23</span>,<span class="number">34</span>,<span class="number">67</span>,<span class="number">89</span>,<span class="number">123</span>,<span class="number">368</span>,<span class="number">789</span>&#125;,</span><br><span class="line">        []<span class="keyword">int</span>&#123;<span class="number">25</span>,<span class="number">26</span>,<span class="number">27</span>,<span class="number">28</span>,<span class="number">29</span>,<span class="number">30</span>&#125;,</span><br><span class="line">        []<span class="keyword">int</span>&#123;<span class="number">39</span>,<span class="number">100</span>,<span class="number">200</span>,<span class="number">300</span>,<span class="number">400</span>,<span class="number">500</span>&#125;,</span><br><span class="line">    &#125;</span><br><span class="line">	log.Println(a)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="调用"><a href="#调用" class="headerlink" title="调用"></a>调用</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">xia:didi_interview afternoon$ go <span class="built_in">test</span> -v *.go</span><br><span class="line">=== RUN   TestMerge</span><br><span class="line">2019/12/17 11:27:50 5 8</span><br><span class="line">2019/12/17 11:27:50 8 8</span><br><span class="line">2019/12/17 11:27:50 1 6</span><br><span class="line">2019/12/17 11:27:50 7 6</span><br><span class="line">2019/12/17 11:27:50 0 0</span><br><span class="line">2019/12/17 11:27:50 6 0</span><br><span class="line">2019/12/17 11:27:50 13 13</span><br><span class="line">2019/12/17 11:27:50 16 13</span><br><span class="line">2019/12/17 11:27:50 0 0</span><br><span class="line">2019/12/17 11:27:50 6 0</span><br><span class="line">2019/12/17 11:27:50 24 6</span><br><span class="line">2019/12/17 11:27:50 29 6</span><br><span class="line">2019/12/17 11:27:50 [[1 2 3 4 5 6 7 8 9 10 23 25 26 27 28 29 30 34 39 67 89 100 123 124 200 300 345 368 400 500 676 789 968 1034 2039]]</span><br><span class="line">--- PASS: TestMerge (0.00s)</span><br><span class="line">PASS</span><br><span class="line">ok      <span class="built_in">command</span>-line-arguments  (cached)</span><br></pre></td></tr></table></figure>
+
+<h3 id="第三题：时针分针在12点整相交，下一次相交在什么时刻"><a href="#第三题：时针分针在12点整相交，下一次相交在什么时刻" class="headerlink" title="第三题：时针分针在12点整相交，下一次相交在什么时刻"></a>第三题：时针分针在12点整相交，下一次相交在什么时刻</h3><p>面试的没有头绪，因为回答的不够好，所以导致心理有些波动。回到家重新缕了下思路。</p>
+<h4 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h4><p>一天时间86400s，半天为43200s。所以只需要判断每一秒的角度即可。四万多次直接遍历即可（可能不是最优解）</p>
+<pre><code>角度： 
+    时针 1度 = 12h*3600s/360 = 120s
+    分针 1度 = 1h*3600s/360 = 20s
+    秒针 1度 = 60s/360 = 1/6s
+
+算下每一秒各针对应的角度，时针和分针角度相同的时刻即为答案</code></pre><h4 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h4><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//时针秒针相交问题问题</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">clockIntersect</span><span class="params">()</span> [][]<span class="title">int</span></span> &#123;</span><br><span class="line">	clockSecs := <span class="number">60</span> * <span class="number">60</span> * <span class="number">12</span></span><br><span class="line">	interSectTime := [][]<span class="keyword">int</span>&#123;&#125;</span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt;= clockSecs; i++ &#123;</span><br><span class="line">		<span class="comment">// log.Println(getHourAngle(i), GetminuteAngle(i))</span></span><br><span class="line">		<span class="keyword">if</span> getHourAngle(i) == GetminuteAngle(i) &#123;</span><br><span class="line">			interSectTime = <span class="built_in">append</span>(interSectTime, []<span class="keyword">int</span>&#123;</span><br><span class="line">				i / <span class="number">3600</span>,</span><br><span class="line">				i % <span class="number">3600</span> / <span class="number">60</span>,</span><br><span class="line">				i % <span class="number">60</span>,</span><br><span class="line">				<span class="comment">// getHourAngle(i),</span></span><br><span class="line">				<span class="comment">// GetminuteAngle(i),</span></span><br><span class="line">			&#125;)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> interSectTime</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取时针角度</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">getHourAngle</span><span class="params">(sec <span class="keyword">int</span>)</span> <span class="title">float32</span></span> &#123;</span><br><span class="line">	f, _ := FloatComplementation(<span class="keyword">float32</span>(sec)/<span class="number">120</span>, <span class="number">360</span>)</span><br><span class="line">	<span class="keyword">return</span> f</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取分针角度</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">GetminuteAngle</span><span class="params">(sec <span class="keyword">int</span>)</span> <span class="title">float32</span></span> &#123;</span><br><span class="line">	f, _ := FloatComplementation(<span class="keyword">float32</span>(sec)/<span class="number">10</span>, <span class="number">360</span>)</span><br><span class="line">	<span class="keyword">return</span> f</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取秒针角度</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">GetSecondAngle</span><span class="params">(sec <span class="keyword">int</span>)</span> <span class="title">float32</span></span> &#123;</span><br><span class="line">	f, _ := FloatComplementation(<span class="keyword">float32</span>(sec)*<span class="number">60</span>, <span class="number">360</span>)</span><br><span class="line">	<span class="keyword">return</span> f</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//float取余</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">FloatComplementation</span><span class="params">(f, i <span class="keyword">float32</span>)</span> <span class="params">(<span class="keyword">float32</span>, <span class="keyword">float32</span>)</span></span> &#123;</span><br><span class="line">	<span class="keyword">if</span> f &gt; i &#123;</span><br><span class="line">		<span class="keyword">return</span> FloatComplementation(f-i, i)</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> f, i</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="调用-1"><a href="#调用-1" class="headerlink" title="调用"></a>调用</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">2019/12/17 12:59:46 [[0 0 0] [12 0 0]]</span><br><span class="line">--- PASS: TestIntersect (0.00s)</span><br><span class="line">PASS</span><br><span class="line">ok      <span class="built_in">command</span>-line-arguments  0.010s</span><br></pre></td></tr></table></figure>
+<h4 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h4><p>0点之后下一次整数秒相交为12点，也就是不存在整数秒相交的情况。</p>
+<h4 id="判断非整数秒相交的情况"><a href="#判断非整数秒相交的情况" class="headerlink" title="判断非整数秒相交的情况"></a>判断非整数秒相交的情况</h4><p>如果不存在整数秒相交，那么相交一定在上一秒到下一秒之间。则存在上一秒 时针的角度&gt;分针的角度，下一秒时针的角度小于分针的角度，满足此条件即可达到相交的秒区间</p>
+<h4 id="调整代码后得出所有相交的时刻"><a href="#调整代码后得出所有相交的时刻" class="headerlink" title="调整代码后得出所有相交的时刻"></a>调整代码后得出所有相交的时刻</h4><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">clockIntersect</span><span class="params">()</span> [][]<span class="title">int</span></span> &#123;</span><br><span class="line">	clockSecs := <span class="number">60</span> * <span class="number">60</span> * <span class="number">12</span></span><br><span class="line">	interSectTime := [][]<span class="keyword">int</span>&#123;&#125;</span><br><span class="line">	angleList := <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="keyword">int</span>]ClockTime, clockSecs)</span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt;= clockSecs; i++ &#123;</span><br><span class="line">		<span class="comment">// log.Println(getHourAngle(i), GetminuteAngle(i))</span></span><br><span class="line">		hourAngel := getHourAngle(i)</span><br><span class="line">		minuteAngel := GetminuteAngle(i)</span><br><span class="line">		angleList[i] = ClockTime&#123;i, hourAngel, minuteAngel&#125;</span><br><span class="line">		<span class="comment">//判断相交</span></span><br><span class="line">		<span class="keyword">if</span> hourAngel == minuteAngel &#123;</span><br><span class="line">			interSectTime = <span class="built_in">append</span>(interSectTime, []<span class="keyword">int</span>&#123;</span><br><span class="line">				i / <span class="number">3600</span>,</span><br><span class="line">				i % <span class="number">3600</span> / <span class="number">60</span>,</span><br><span class="line">				i % <span class="number">60</span>,</span><br><span class="line">			&#125;)</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="comment">//判断相交区间</span></span><br><span class="line">		<span class="keyword">if</span> i &gt; <span class="number">0</span> &#123;</span><br><span class="line">			<span class="keyword">if</span> angleList[i<span class="number">-1</span>].HourAngel &gt; angleList[i<span class="number">-1</span>].MinuteAngel &amp;&amp; angleList[i].HourAngel &lt; angleList[i].MinuteAngel &#123;</span><br><span class="line">				<span class="comment">//满足条件</span></span><br><span class="line">				interSectTime = <span class="built_in">append</span>(interSectTime, []<span class="keyword">int</span>&#123;</span><br><span class="line">					(i - <span class="number">1</span>) / <span class="number">3600</span>,</span><br><span class="line">					(i - <span class="number">1</span>) % <span class="number">3600</span> / <span class="number">60</span>,</span><br><span class="line">					(i - <span class="number">1</span>) % <span class="number">60</span>,</span><br><span class="line">					i / <span class="number">3600</span>,</span><br><span class="line">					i % <span class="number">3600</span> / <span class="number">60</span>,</span><br><span class="line">					i % <span class="number">60</span>,</span><br><span class="line">				&#125;)</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> interSectTime</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">=== RUN   TestIntersect</span><br><span class="line">2019/12/17 13:47:22 [[0 0 0] [1 5 27 1 5 28] [2 10 54 2 10 55] [3 16 21 3 16 22] [4 21 49 4 21 50] [5 27 16 5 27 17] [6 32 43 6 32 44] [7 38 10 7 38 11] [8 43 38 8 43 39] [9 49 5 9 49 6] [10 54 32 10 54 33] [12 0 0]]</span><br><span class="line">--- PASS: TestIntersect (0.01s)</span><br><span class="line">PASS</span><br><span class="line">ok      <span class="built_in">command</span>-line-arguments  0.018s</span><br></pre></td></tr></table></figure>
+
+<h4 id="方程式解法"><a href="#方程式解法" class="headerlink" title="方程式解法"></a>方程式解法</h4><p>设x秒时时针和分针角度相等，则有</p>
+<pre><code>x/120= (x - n * 3600)/10   43200&gt;=x&gt;=0,n取值范围为[0,11]
+
+x = 12x - 12 * 3600n
+
+11x = 12 * 3600n
+
+x = 12 * 3600n / 11</code></pre><p>得到的结果集</p>
+<pre><code>n = 0 ; x = 0;          00:00:00
+n = 1 ; x = 3927.27;    01:05:27.27
+n = 2 ; x = 7854.55;    02:10:54.55
+...</code></pre><h3 id="第四题-Ping"><a href="#第四题-Ping" class="headerlink" title="第四题 Ping"></a>第四题 Ping</h3><pre><code>ping是个命令 用来检测网络是否能够到达某个站点或远端IP。
+
+ping使用ICMP协议（Internet Control Message Protocol，控制报文协议），类型（8 ping 0 repley ping）。基于IP协议。
+
+ICMP大致分成两种功能：差错通知和信息查询.</code></pre><h3 id="第五题：要自信-回答问题要确切"><a href="#第五题：要自信-回答问题要确切" class="headerlink" title="第五题：要自信 回答问题要确切"></a>第五题：要自信 回答问题要确切</h3><ul>
+<li>回答问题不要总是以一种让人觉得不确定的口吻。譬如“我认为”，“我觉得”，“可能是”，要更加确定。</li>
+<li>对于不知道的问题说不知道即可。你的了解和面试官的了解可能不一样。</li>
+<li>相信自己的能力</li>
+</ul>
+<h3 id="第六题：golang-GC"><a href="#第六题：golang-GC" class="headerlink" title="第六题：golang GC"></a>第六题：golang GC</h3><h4 id="方案"><a href="#方案" class="headerlink" title="方案"></a>方案</h4><p>三色标记、写屏障，并发标记&amp;清除</p>
+<h4 id="触发"><a href="#触发" class="headerlink" title="触发"></a>触发</h4><p>内存阀值、定时执行、手动执行</p>
+<h4 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h4><ul>
+<li>收集根对象（全局变量，和G stack）</li>
+<li>标记（Mark，Rescan globals/changed stack, finish mark），WB(STW)</li>
+<li>清除</li>
+</ul>
+<h4 id="效率"><a href="#效率" class="headerlink" title="效率"></a>效率</h4><p>sub ms</p>
+<h3 id="第七题：两个文件的数据，得出重复的行数"><a href="#第七题：两个文件的数据，得出重复的行数" class="headerlink" title="第七题：两个文件的数据，得出重复的行数"></a>第七题：两个文件的数据，得出重复的行数</h3><p>面试的时候以为可以使用awk命令进行对比输出。回答错误，自己对于linux命令行的操作没那么熟练。其他方案需要程序读写文件</p>
+<h4 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat a.txt b.txt |sort |uniq -d</span><br></pre></td></tr></table></figure>
+
+<h4 id="知识扩展"><a href="#知识扩展" class="headerlink" title="知识扩展"></a>知识扩展</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">1、 两个文件的交集、并集（前提条件：每个文件中不得有重复 也可以是多个文件）</span><br><span class="line"></span><br><span class="line">(1)、取出两个文件的并集（重复的行只保留一份）</span><br><span class="line">cat file1 file2 | sort | uniq &gt; file3 </span><br><span class="line"></span><br><span class="line">(2)、取出两个文件的交集（只留下同时存在于两个文件中的文件）</span><br><span class="line">cat file1 file2 | sort | uniq -d &gt; file3</span><br><span class="line"></span><br><span class="line">(3)、 删除交集，留下其他的行</span><br><span class="line">cat file1 file2 | sort | uniq -u &gt; file3</span><br><span class="line"></span><br><span class="line">2、两个文件合并</span><br><span class="line"></span><br><span class="line">(1)、 一个文件在上，一个文件在下</span><br><span class="line">cat file1 file2 &gt; file3</span><br><span class="line"></span><br><span class="line">(2)、 一个文件在左，一个文件在右</span><br><span class="line">paste file1 file2 &gt; file3</span><br><span class="line"></span><br><span class="line">3、一个文件去掉重复的行</span><br><span class="line"></span><br><span class="line">(1)、 重复的多行记为一行</span><br><span class="line">sort file |uniq</span><br><span class="line"></span><br><span class="line">(2)、 重复的行全部去掉</span><br><span class="line">sort file |uniq -u</span><br></pre></td></tr></table></figure>
+
+<h3 id="第八题：如何设计一个高可用的系统"><a href="#第八题：如何设计一个高可用的系统" class="headerlink" title="第八题：如何设计一个高可用的系统"></a>第八题：如何设计一个高可用的系统</h3><h4 id="高可用"><a href="#高可用" class="headerlink" title="高可用"></a>高可用</h4><pre><code>冗余备份和失效转移解决高可用问题
+
+服务层：负载均衡 注册发现 服务降级
+
+应用层：无状态 负载均衡 分布式部署
+
+数据层：冗余备份（冷，热备[同步，异步]，温备），失效转移。数据一致性 CPA</code></pre><h4 id="高并发"><a href="#高并发" class="headerlink" title="高并发"></a>高并发</h4><pre><code>高性能的架构是以用户为中心，提供快速的网页访问体验，主要参数有较短的响应时间、较大的并发处理能力、较高的吞吐量与稳定的性能参数。
+
+前端优化：网站业务逻辑之前的部分。
+
+浏览器优化：减少 HTTP 请求数，使用浏览器缓存，启用压缩，CSS JS 位置，JS 异步，减少 Cookie 传输；CDN 加速，反向代理。
+
+应用层优化：处理网站业务的服务器。使用缓存，异步，集群。
+
+代码优化：合理的架构，多线程，资源复用（对象池，线程池等），良好的数据结构，JVM调优，单例，Cache 等。
+
+存储优化：缓存、固态硬盘、光纤传输、优化读写、磁盘冗余、分布式存储（HDFS）、NoSQL 等。</code></pre><h4 id="可伸缩"><a href="#可伸缩" class="headerlink" title="可伸缩"></a>可伸缩</h4><pre><code>应用层：对应用进行垂直或水平切分。然后针对单一功能进行负载均衡（DNS、HTTP[反向代理]、IP、链路层）。
+
+服务层：与应用层类似。
+
+数据层：分库、分表、NoSQL 等；常用算法 Hash，一致性 Hash。</code></pre><h4 id="可扩展"><a href="#可扩展" class="headerlink" title="可扩展"></a>可扩展</h4><pre><code>模块化，组件化：高内聚，低耦合，提高复用性，扩展性。
+
+稳定接口：定义稳定的接口，在接口不变的情况下，内部结构可以“随意”变化。
+
+设计模式：应用面向对象思想，原则，使用设计模式，进行代码层面的设计。
+
+消息队列：模块化的系统，通过消息队列进行交互，使模块之间的依赖解耦。
+
+分布式服务：公用模块服务化，提供其他系统使用，提高可重用性，扩展性。</code></pre><h4 id="安全"><a href="#安全" class="headerlink" title="安全"></a>安全</h4><pre><code>基础设施安全：硬件采购，操作系统，网络环境方面的安全。一般采用正规渠道购买高质量的产品，选择安全的操作系统，及时修补漏洞，安装杀毒软件防火墙。防范病毒，后门。设置防火墙策略，建立 DDOS 防御系统，使用攻击检测系统，进行子网隔离等手段。
+
+应用系统安全：在程序开发时，对已知常用问题，使用正确的方式，在代码层面解决掉。防止跨站脚本攻击（XSS），注入攻击，跨站请求伪造（CSRF），错误信息，HTML 注释，文件上传，路径遍历等。还可以使用 Web 应用防火墙（比如：ModSecurity），进行安全漏洞扫描等措施，加强应用级别的安全。SQL注入
+
+数据保密安全：存储安全（存储在可靠的设备，实时，定时备份），保存安全（重要的信息加密保存，选择合适的人员复杂保存和检测等），传输安全（防止数据窃取和数据篡改）。</code></pre><h4 id="敏捷"><a href="#敏捷" class="headerlink" title="敏捷"></a>敏捷</h4><pre><code>开发流程工具化，运维部署的自动化，监控报警的及时化，解决问题的快速化</code></pre><h3 id="第九题：浏览器输入网址后发生了什么"><a href="#第九题：浏览器输入网址后发生了什么" class="headerlink" title="第九题：浏览器输入网址后发生了什么"></a>第九题：浏览器输入网址后发生了什么</h3><p>答案从网上整理的，主要便于记忆</p>
+<p>1 URL 解析</p>
+<pre><code>解析协议名、host、（端口）、path、params</code></pre><p>2 DNS 查询<br>    通过host 查询DNS找到最终对应的IP，DNS有层层上报查找的功能</p>
+<p>3 TCP 连接</p>
+<pre><code>建立链接，发送数据</code></pre><p>4 处理请求</p>
+<pre><code>服务端进行业务逻辑的处理</code></pre><p>5 接受响应，关闭TCP链接</p>
+<pre><code>服务端处理完成后，返回数据给浏览器</code></pre><p>5 渲染页面</p>
+<pre><code>浏览器获取到资源信息后，渲染页面和执行脚本，完成页面的展示</code></pre><h4 id="如果加入了HTTPS怎么处理"><a href="#如果加入了HTTPS怎么处理" class="headerlink" title="如果加入了HTTPS怎么处理"></a>如果加入了HTTPS怎么处理</h4><p>在第三步之后</p>
+<p>3.1 建立SSL加密通道</p>
+<pre><code>c-&gt;密钥算法套件（加密协议及版本）-&gt;s
+c&lt;-返回确认符合的加密协议、版本和证书(pub_key)&lt;-s
+c-&gt;使用根证书验证证书合法性，生成随机串，利用服务端pub_key RSA加密，生成握手信息，加密握手信息-&gt;s
+s&lt;-解密握手信息，获得随机串，相同的加密方式发给客户端&lt;-s
+c-&gt;解密验证，完成握手。进行通信-&gt;s
+
+使用RSA非对称算法，服务端向客户端发送公钥，公钥包含了域名、颁发机构、过期日期。保证了公钥的合法性和服务端的身份正确性（而不会被黑客冒充）客户端向第三方验证公钥的合法性，验证通过后向服务端约定对称加密的随机字符号。保证了随机字符串只有通信双方知道。接下来的通信就使用这个随机字符号进行加密通信。因为随机字符串只有双方知道，所以信息不会被截获。</code></pre><h3 id="第十题：Mysql中执行一条SQL是如何处理的"><a href="#第十题：Mysql中执行一条SQL是如何处理的" class="headerlink" title="第十题：Mysql中执行一条SQL是如何处理的"></a>第十题：Mysql中执行一条SQL是如何处理的</h3><h4 id="建立链接"><a href="#建立链接" class="headerlink" title="建立链接"></a>建立链接</h4><p>发送带有SQL语句的数据包，数据包大小受到max_allowed_packet的限制</p>
+<h4 id="处理请求"><a href="#处理请求" class="headerlink" title="处理请求"></a>处理请求</h4><ul>
+<li>1 查询缓存</li>
+<li>2 查询优化（SQL的解析、预处理，生成解析树；SQL的执行优化，生成执行计划）</li>
+<li>3 根据执行计划，调用存储引擎实现的接口完成</li>
+</ul>
+<h4 id="返回结果"><a href="#返回结果" class="headerlink" title="返回结果"></a>返回结果</h4>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag"># 面试</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/2019/01/10/golang-patterns/" rel="next" title="golang 模式">
+                  <i class="fa fa-chevron-left"></i> golang 模式
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题整理"><span class="nav-number">1.</span> <span class="nav-text">问题整理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#答案整理"><span class="nav-number">2.</span> <span class="nav-text">答案整理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第二题：若干个有序的数组，merge成一个有序的数组"><span class="nav-number">2.1.</span> <span class="nav-text">第二题：若干个有序的数组，merge成一个有序的数组</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#思路"><span class="nav-number">2.1.1.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码"><span class="nav-number">2.1.2.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#测试"><span class="nav-number">2.1.3.</span> <span class="nav-text">测试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#调用"><span class="nav-number">2.1.4.</span> <span class="nav-text">调用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第三题：时针分针在12点整相交，下一次相交在什么时刻"><span class="nav-number">2.2.</span> <span class="nav-text">第三题：时针分针在12点整相交，下一次相交在什么时刻</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#思路-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码-1"><span class="nav-number">2.2.2.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#调用-1"><span class="nav-number">2.2.3.</span> <span class="nav-text">调用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#结论"><span class="nav-number">2.2.4.</span> <span class="nav-text">结论</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#判断非整数秒相交的情况"><span class="nav-number">2.2.5.</span> <span class="nav-text">判断非整数秒相交的情况</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#调整代码后得出所有相交的时刻"><span class="nav-number">2.2.6.</span> <span class="nav-text">调整代码后得出所有相交的时刻</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方程式解法"><span class="nav-number">2.2.7.</span> <span class="nav-text">方程式解法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第四题-Ping"><span class="nav-number">2.3.</span> <span class="nav-text">第四题 Ping</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第五题：要自信-回答问题要确切"><span class="nav-number">2.4.</span> <span class="nav-text">第五题：要自信 回答问题要确切</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第六题：golang-GC"><span class="nav-number">2.5.</span> <span class="nav-text">第六题：golang GC</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#方案"><span class="nav-number">2.5.1.</span> <span class="nav-text">方案</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#触发"><span class="nav-number">2.5.2.</span> <span class="nav-text">触发</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#过程"><span class="nav-number">2.5.3.</span> <span class="nav-text">过程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#效率"><span class="nav-number">2.5.4.</span> <span class="nav-text">效率</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第七题：两个文件的数据，得出重复的行数"><span class="nav-number">2.6.</span> <span class="nav-text">第七题：两个文件的数据，得出重复的行数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#答案"><span class="nav-number">2.6.1.</span> <span class="nav-text">答案</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#知识扩展"><span class="nav-number">2.6.2.</span> <span class="nav-text">知识扩展</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第八题：如何设计一个高可用的系统"><span class="nav-number">2.7.</span> <span class="nav-text">第八题：如何设计一个高可用的系统</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#高可用"><span class="nav-number">2.7.1.</span> <span class="nav-text">高可用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#高并发"><span class="nav-number">2.7.2.</span> <span class="nav-text">高并发</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#可伸缩"><span class="nav-number">2.7.3.</span> <span class="nav-text">可伸缩</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#可扩展"><span class="nav-number">2.7.4.</span> <span class="nav-text">可扩展</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安全"><span class="nav-number">2.7.5.</span> <span class="nav-text">安全</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#敏捷"><span class="nav-number">2.7.6.</span> <span class="nav-text">敏捷</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第九题：浏览器输入网址后发生了什么"><span class="nav-number">2.8.</span> <span class="nav-text">第九题：浏览器输入网址后发生了什么</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#如果加入了HTTPS怎么处理"><span class="nav-number">2.8.1.</span> <span class="nav-text">如果加入了HTTPS怎么处理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第十题：Mysql中执行一条SQL是如何处理的"><span class="nav-number">2.9.</span> <span class="nav-text">第十题：Mysql中执行一条SQL是如何处理的</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#建立链接"><span class="nav-number">2.9.1.</span> <span class="nav-text">建立链接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#处理请求"><span class="nav-number">2.9.2.</span> <span class="nav-text">处理请求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#返回结果"><span class="nav-number">2.9.3.</span> <span class="nav-text">返回结果</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">xiaxm.com</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xiaxm.com</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a>
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://mist.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/muse.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

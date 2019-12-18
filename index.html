@@ -51,7 +51,7 @@
   };
 </script>
 
-  <meta name="keywords" content="golang programer infomation tech">
+  <meta name="keywords" content="golang programer infomation tech blog">
 <meta property="og:type" content="website">
 <meta property="og:title" content="xiaxm">
 <meta property="og:url" content="https:&#x2F;&#x2F;xiaxm.com&#x2F;index.html">
@@ -121,6 +121,7 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
+        <p class="site-subtitle">Learning and Labor</p>
   </div>
 
   <div class="site-nav-toggle">
@@ -136,11 +137,6 @@
 <nav class="site-nav">
   
   <ul id="menu" class="menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
-
-  </li>
         <li class="menu-item menu-item-archives">
 
     <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
@@ -149,11 +145,6 @@
         <li class="menu-item menu-item-categories">
 
     <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
-
-  </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
 
   </li>
   </ul>
@@ -182,11 +173,11 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://xiaxm.com/2019/11/13/hello-world/">
+    <link itemprop="mainEntityOfPage" href="https://xiaxm.com/2019/12/16/didi/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="xia xm">
+      <meta itemprop="name" content="xiaxm.com">
       <meta itemprop="description" content="">
     </span>
 
@@ -196,7 +187,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2019/11/13/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
+            <a href="/2019/12/16/didi/" class="post-title-link" itemprop="url">滴滴面试总结</a>
         </h1>
 
         <div class="post-meta">
@@ -206,7 +197,196 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2019-11-13 10:49:38" itemprop="dateCreated datePublished" datetime="2019-11-13T10:49:38+08:00">2019-11-13</time>
+              <time title="Created: 2019-12-16 22:25:31" itemprop="dateCreated datePublished" datetime="2019-12-16T22:25:31+08:00">2019-12-16</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>今天去面试了滴滴，没有通过第二轮面试，内心十分遗憾。面试官最后对我说：“要自信点，不要总是说‘我觉得xxx’、‘我认为xxx’，这样会让人觉得你是在猜测，即使你可能知道也会觉得你了解不够深入。</p>
+<p>还有就是大家对于“了解”或是“知道”的程度不一致，这样会导致我以为你很了解，其实你只是知道。这样的话可能考察的是你不擅长的领域，也就无法检测初面试者最真实的能力。</p>
+<p>觉得很遗憾的是，我内心觉得这是一个很好的机会，一个独角兽的公司核心业务的开发的工作机会，没有把握住。不过仍旧非常感谢面试我的两位同仁，你们非常专业，也非常平易近人，是我对滴滴留下了比较好的印象。与我而言，我会快速补充相关知识，有机会我还要试一试。</p>
+<p>现罗列一些我无法完全回答上来或回答的不好的问题，作为这次面试的总结。</p>
+<h2 id="问题整理"><a href="#问题整理" class="headerlink" title="问题整理"></a>问题整理</h2><p>1 GRPC &amp; GRPC怎么实现 （网络各层协议）</p>
+<pre><code>GRPC仅仅写过Demo，没有实际使用经验，不应该回答了解，应该回答“不知道”。“了解”导致所有的问题都围绕GRPC展开，让面试进入我不熟悉的技术领域。</code></pre><p>2 若干个有序的数组，merge成一个有序的数组</p>
+<pre><code>典型的归并排序的思想。但是当时没有写出来。直接使用方案是合并后冒泡确认顺序，事后思考下，即使这种方案，也不用每次合并都排序，所有现场作出的答案远远不是最优解。</code></pre><p>3 时针分针在12点整相交，下一次相交在什么时刻</p>
+<pre><code>回答的是1:05:10。应该是错误的。当时觉得面试可能没戏了。脑子很乱，无法捋清楚思路，导致回答失败。</code></pre><p>4 ping</p>
+<pre><code>回答除了icmp，和网络层。但是条理不够清楚。</code></pre><p>5 要自信 回答问题要确切</p>
+<p>6 golang gc</p>
+<pre><code>这个了解的不够，所有无法回答</code></pre><p>7 两个文档（存储手机号）比较里面重复的内容（手机号）</p>
+<pre><code>我觉得有很多种方式。
+
+1 写程序。可以读取文件内容之后循环对比
+
+2 SQL。将文件读取到数据库中，通过SQL比较
+
+3 Redis。 将文件内容作为Key存储到Redis，判断是否存在相同的Key
+
+4 直接用命令行。 无法直接写出命令行，导致回答失败</code></pre><p>8 如何设计一个高可用的系统</p>
+<pre><code>没有系统性的思路。提供的方案都是比较具体的事项，不够全面。</code></pre><p>9 浏览器输入网址后发生了什么</p>
+<pre><code>大体回答了所有了解的过程。但是不够连贯，总是想到哪说到哪</code></pre><p>10 Mysql中执行一条SQL是如何处理的</p>
+<pre><code>这个是凭借印象回答的  SQL解析  缓存  查询引擎</code></pre><p>11 开放性问题 你自己在工作中的最优实现</p>
+<pre><code>回答的不好 本来打算讲解完整的系统构成，中途被打断，所以没有很完整的叙述下去。需要总结提炼关键的点，尽可能减少叙述的时间。</code></pre><h2 id="答案整理"><a href="#答案整理" class="headerlink" title="答案整理"></a>答案整理</h2><h3 id="第二题：若干个有序的数组，merge成一个有序的数组"><a href="#第二题：若干个有序的数组，merge成一个有序的数组" class="headerlink" title="第二题：若干个有序的数组，merge成一个有序的数组"></a>第二题：若干个有序的数组，merge成一个有序的数组</h3><h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><p>若干个有序的数组合并，表明需要借助有序的属性，使合并后算法复杂度降低。和归并排序相识的解法。两两归并降低维度，递归直至生成最后的数组，此为最优解。</p>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 递归调用</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Sort</span><span class="params">(arrList [][]<span class="keyword">int</span>)</span> [][]<span class="title">int</span></span> &#123;</span><br><span class="line">	newList := [][]<span class="keyword">int</span>&#123;&#125;</span><br><span class="line">	<span class="keyword">if</span> <span class="built_in">len</span>(arrList)%<span class="number">2</span> &gt; <span class="number">0</span> &#123;</span><br><span class="line">		arrList = <span class="built_in">append</span>(arrList, []<span class="keyword">int</span>&#123;&#125;)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> k, _ := <span class="keyword">range</span> arrList &#123;</span><br><span class="line">		<span class="keyword">if</span> k%<span class="number">2</span> == <span class="number">1</span> &#123;</span><br><span class="line">			newList = <span class="built_in">append</span>(newList, MergeSort(arrList[k<span class="number">-1</span>], arrList[k]))</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> <span class="built_in">len</span>(newList) &gt; <span class="number">1</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> Sort(newList)</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> newList</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将两个有序数组合并成一个有序数组</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">MergeSort</span><span class="params">(a1, a2 []<span class="keyword">int</span>)</span> []<span class="title">int</span></span> &#123;</span><br><span class="line">	a1Pos, a2Pos := <span class="number">0</span>, <span class="number">0</span></span><br><span class="line">	a := []<span class="keyword">int</span>&#123;&#125;</span><br><span class="line">	<span class="comment">// for i := 1; i &lt;= len(a1)+len(a2); i++ &#123;</span></span><br><span class="line">	<span class="keyword">for</span> &#123;</span><br><span class="line">		<span class="keyword">if</span> <span class="built_in">len</span>(a1) &gt; a1Pos &amp;&amp; <span class="built_in">len</span>(a2) &gt; a2Pos &#123;</span><br><span class="line">			item := <span class="number">0</span></span><br><span class="line">			a1Pos, a2Pos, item = GetMinItem(a1, a2, a1Pos, a2Pos)</span><br><span class="line">			a = <span class="built_in">append</span>(a, item)</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			log.Println(a1Pos, a2Pos)</span><br><span class="line">			<span class="keyword">if</span> <span class="built_in">len</span>(a1) &gt; a1Pos &#123;</span><br><span class="line">				<span class="comment">//</span></span><br><span class="line">				<span class="keyword">for</span> k1, v1 := <span class="keyword">range</span> a1 &#123;</span><br><span class="line">					<span class="keyword">if</span> k1 &gt;= a1Pos &#123;</span><br><span class="line">						a = <span class="built_in">append</span>(a, v1)</span><br><span class="line">						a1Pos++</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125; <span class="keyword">else</span> <span class="keyword">if</span> <span class="built_in">len</span>(a2) &gt; a2Pos &#123;</span><br><span class="line">				<span class="comment">//</span></span><br><span class="line">				<span class="keyword">for</span> k2, v2 := <span class="keyword">range</span> a2 &#123;</span><br><span class="line">					<span class="keyword">if</span> k2 &gt;= a2Pos &#123;</span><br><span class="line">						a = <span class="built_in">append</span>(a, v2)</span><br><span class="line">						a2Pos++</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">				<span class="keyword">break</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> a</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 比较输出当前位置最小的值</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">GetMinItem</span><span class="params">(a1, a2 []<span class="keyword">int</span>, a1Pos, a2Pos <span class="keyword">int</span>)</span> <span class="params">(a1pos, a2pos, val <span class="keyword">int</span>)</span></span> &#123;</span><br><span class="line">	<span class="keyword">if</span> a1[a1Pos] &gt; a2[a2Pos] &#123;</span><br><span class="line">		<span class="keyword">return</span> a1Pos, a2Pos + <span class="number">1</span>, a2[a2Pos]</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> a1Pos + <span class="number">1</span>, a2Pos, a1[a1Pos]</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h4><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">TestMerge</span><span class="params">(t *testing.T)</span></span> &#123;</span><br><span class="line">	<span class="keyword">var</span> a := [][]<span class="keyword">int</span>&#123;</span><br><span class="line">		[]<span class="keyword">int</span>&#123;<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">9</span>, <span class="number">968</span>, <span class="number">1034</span>, <span class="number">2039</span>&#125;,</span><br><span class="line">        []<span class="keyword">int</span>&#123;<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>, <span class="number">10</span>, <span class="number">124</span>, <span class="number">345</span>, <span class="number">676</span>&#125;,</span><br><span class="line">        []<span class="keyword">int</span>&#123;<span class="number">23</span>,<span class="number">34</span>,<span class="number">67</span>,<span class="number">89</span>,<span class="number">123</span>,<span class="number">368</span>,<span class="number">789</span>&#125;,</span><br><span class="line">        []<span class="keyword">int</span>&#123;<span class="number">25</span>,<span class="number">26</span>,<span class="number">27</span>,<span class="number">28</span>,<span class="number">29</span>,<span class="number">30</span>&#125;,</span><br><span class="line">        []<span class="keyword">int</span>&#123;<span class="number">39</span>,<span class="number">100</span>,<span class="number">200</span>,<span class="number">300</span>,<span class="number">400</span>,<span class="number">500</span>&#125;,</span><br><span class="line">    &#125;</span><br><span class="line">	log.Println(a)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="调用"><a href="#调用" class="headerlink" title="调用"></a>调用</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">xia:didi_interview afternoon$ go <span class="built_in">test</span> -v *.go</span><br><span class="line">=== RUN   TestMerge</span><br><span class="line">2019/12/17 11:27:50 5 8</span><br><span class="line">2019/12/17 11:27:50 8 8</span><br><span class="line">2019/12/17 11:27:50 1 6</span><br><span class="line">2019/12/17 11:27:50 7 6</span><br><span class="line">2019/12/17 11:27:50 0 0</span><br><span class="line">2019/12/17 11:27:50 6 0</span><br><span class="line">2019/12/17 11:27:50 13 13</span><br><span class="line">2019/12/17 11:27:50 16 13</span><br><span class="line">2019/12/17 11:27:50 0 0</span><br><span class="line">2019/12/17 11:27:50 6 0</span><br><span class="line">2019/12/17 11:27:50 24 6</span><br><span class="line">2019/12/17 11:27:50 29 6</span><br><span class="line">2019/12/17 11:27:50 [[1 2 3 4 5 6 7 8 9 10 23 25 26 27 28 29 30 34 39 67 89 100 123 124 200 300 345 368 400 500 676 789 968 1034 2039]]</span><br><span class="line">--- PASS: TestMerge (0.00s)</span><br><span class="line">PASS</span><br><span class="line">ok      <span class="built_in">command</span>-line-arguments  (cached)</span><br></pre></td></tr></table></figure>
+
+<h3 id="第三题：时针分针在12点整相交，下一次相交在什么时刻"><a href="#第三题：时针分针在12点整相交，下一次相交在什么时刻" class="headerlink" title="第三题：时针分针在12点整相交，下一次相交在什么时刻"></a>第三题：时针分针在12点整相交，下一次相交在什么时刻</h3><p>面试的没有头绪，因为回答的不够好，所以导致心理有些波动。回到家重新缕了下思路。</p>
+<h4 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h4><p>一天时间86400s，半天为43200s。所以只需要判断每一秒的角度即可。四万多次直接遍历即可（可能不是最优解）</p>
+<pre><code>角度： 
+    时针 1度 = 12h*3600s/360 = 120s
+    分针 1度 = 1h*3600s/360 = 20s
+    秒针 1度 = 60s/360 = 1/6s
+
+算下每一秒各针对应的角度，时针和分针角度相同的时刻即为答案</code></pre><h4 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h4><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//时针秒针相交问题问题</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">clockIntersect</span><span class="params">()</span> [][]<span class="title">int</span></span> &#123;</span><br><span class="line">	clockSecs := <span class="number">60</span> * <span class="number">60</span> * <span class="number">12</span></span><br><span class="line">	interSectTime := [][]<span class="keyword">int</span>&#123;&#125;</span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt;= clockSecs; i++ &#123;</span><br><span class="line">		<span class="comment">// log.Println(getHourAngle(i), GetminuteAngle(i))</span></span><br><span class="line">		<span class="keyword">if</span> getHourAngle(i) == GetminuteAngle(i) &#123;</span><br><span class="line">			interSectTime = <span class="built_in">append</span>(interSectTime, []<span class="keyword">int</span>&#123;</span><br><span class="line">				i / <span class="number">3600</span>,</span><br><span class="line">				i % <span class="number">3600</span> / <span class="number">60</span>,</span><br><span class="line">				i % <span class="number">60</span>,</span><br><span class="line">				<span class="comment">// getHourAngle(i),</span></span><br><span class="line">				<span class="comment">// GetminuteAngle(i),</span></span><br><span class="line">			&#125;)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> interSectTime</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取时针角度</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">getHourAngle</span><span class="params">(sec <span class="keyword">int</span>)</span> <span class="title">float32</span></span> &#123;</span><br><span class="line">	f, _ := FloatComplementation(<span class="keyword">float32</span>(sec)/<span class="number">120</span>, <span class="number">360</span>)</span><br><span class="line">	<span class="keyword">return</span> f</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取分针角度</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">GetminuteAngle</span><span class="params">(sec <span class="keyword">int</span>)</span> <span class="title">float32</span></span> &#123;</span><br><span class="line">	f, _ := FloatComplementation(<span class="keyword">float32</span>(sec)/<span class="number">10</span>, <span class="number">360</span>)</span><br><span class="line">	<span class="keyword">return</span> f</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取秒针角度</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">GetSecondAngle</span><span class="params">(sec <span class="keyword">int</span>)</span> <span class="title">float32</span></span> &#123;</span><br><span class="line">	f, _ := FloatComplementation(<span class="keyword">float32</span>(sec)*<span class="number">60</span>, <span class="number">360</span>)</span><br><span class="line">	<span class="keyword">return</span> f</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//float取余</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">FloatComplementation</span><span class="params">(f, i <span class="keyword">float32</span>)</span> <span class="params">(<span class="keyword">float32</span>, <span class="keyword">float32</span>)</span></span> &#123;</span><br><span class="line">	<span class="keyword">if</span> f &gt; i &#123;</span><br><span class="line">		<span class="keyword">return</span> FloatComplementation(f-i, i)</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> f, i</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="调用-1"><a href="#调用-1" class="headerlink" title="调用"></a>调用</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">2019/12/17 12:59:46 [[0 0 0] [12 0 0]]</span><br><span class="line">--- PASS: TestIntersect (0.00s)</span><br><span class="line">PASS</span><br><span class="line">ok      <span class="built_in">command</span>-line-arguments  0.010s</span><br></pre></td></tr></table></figure>
+<h4 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h4><p>0点之后下一次整数秒相交为12点，也就是不存在整数秒相交的情况。</p>
+<h4 id="判断非整数秒相交的情况"><a href="#判断非整数秒相交的情况" class="headerlink" title="判断非整数秒相交的情况"></a>判断非整数秒相交的情况</h4><p>如果不存在整数秒相交，那么相交一定在上一秒到下一秒之间。则存在上一秒 时针的角度&gt;分针的角度，下一秒时针的角度小于分针的角度，满足此条件即可达到相交的秒区间</p>
+<h4 id="调整代码后得出所有相交的时刻"><a href="#调整代码后得出所有相交的时刻" class="headerlink" title="调整代码后得出所有相交的时刻"></a>调整代码后得出所有相交的时刻</h4><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">clockIntersect</span><span class="params">()</span> [][]<span class="title">int</span></span> &#123;</span><br><span class="line">	clockSecs := <span class="number">60</span> * <span class="number">60</span> * <span class="number">12</span></span><br><span class="line">	interSectTime := [][]<span class="keyword">int</span>&#123;&#125;</span><br><span class="line">	angleList := <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="keyword">int</span>]ClockTime, clockSecs)</span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt;= clockSecs; i++ &#123;</span><br><span class="line">		<span class="comment">// log.Println(getHourAngle(i), GetminuteAngle(i))</span></span><br><span class="line">		hourAngel := getHourAngle(i)</span><br><span class="line">		minuteAngel := GetminuteAngle(i)</span><br><span class="line">		angleList[i] = ClockTime&#123;i, hourAngel, minuteAngel&#125;</span><br><span class="line">		<span class="comment">//判断相交</span></span><br><span class="line">		<span class="keyword">if</span> hourAngel == minuteAngel &#123;</span><br><span class="line">			interSectTime = <span class="built_in">append</span>(interSectTime, []<span class="keyword">int</span>&#123;</span><br><span class="line">				i / <span class="number">3600</span>,</span><br><span class="line">				i % <span class="number">3600</span> / <span class="number">60</span>,</span><br><span class="line">				i % <span class="number">60</span>,</span><br><span class="line">			&#125;)</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="comment">//判断相交区间</span></span><br><span class="line">		<span class="keyword">if</span> i &gt; <span class="number">0</span> &#123;</span><br><span class="line">			<span class="keyword">if</span> angleList[i<span class="number">-1</span>].HourAngel &gt; angleList[i<span class="number">-1</span>].MinuteAngel &amp;&amp; angleList[i].HourAngel &lt; angleList[i].MinuteAngel &#123;</span><br><span class="line">				<span class="comment">//满足条件</span></span><br><span class="line">				interSectTime = <span class="built_in">append</span>(interSectTime, []<span class="keyword">int</span>&#123;</span><br><span class="line">					(i - <span class="number">1</span>) / <span class="number">3600</span>,</span><br><span class="line">					(i - <span class="number">1</span>) % <span class="number">3600</span> / <span class="number">60</span>,</span><br><span class="line">					(i - <span class="number">1</span>) % <span class="number">60</span>,</span><br><span class="line">					i / <span class="number">3600</span>,</span><br><span class="line">					i % <span class="number">3600</span> / <span class="number">60</span>,</span><br><span class="line">					i % <span class="number">60</span>,</span><br><span class="line">				&#125;)</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> interSectTime</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">=== RUN   TestIntersect</span><br><span class="line">2019/12/17 13:47:22 [[0 0 0] [1 5 27 1 5 28] [2 10 54 2 10 55] [3 16 21 3 16 22] [4 21 49 4 21 50] [5 27 16 5 27 17] [6 32 43 6 32 44] [7 38 10 7 38 11] [8 43 38 8 43 39] [9 49 5 9 49 6] [10 54 32 10 54 33] [12 0 0]]</span><br><span class="line">--- PASS: TestIntersect (0.01s)</span><br><span class="line">PASS</span><br><span class="line">ok      <span class="built_in">command</span>-line-arguments  0.018s</span><br></pre></td></tr></table></figure>
+
+<h4 id="方程式解法"><a href="#方程式解法" class="headerlink" title="方程式解法"></a>方程式解法</h4><p>设x秒时时针和分针角度相等，则有</p>
+<pre><code>x/120= (x - n * 3600)/10   43200&gt;=x&gt;=0,n取值范围为[0,11]
+
+x = 12x - 12 * 3600n
+
+11x = 12 * 3600n
+
+x = 12 * 3600n / 11</code></pre><p>得到的结果集</p>
+<pre><code>n = 0 ; x = 0;          00:00:00
+n = 1 ; x = 3927.27;    01:05:27.27
+n = 2 ; x = 7854.55;    02:10:54.55
+...</code></pre><h3 id="第四题-Ping"><a href="#第四题-Ping" class="headerlink" title="第四题 Ping"></a>第四题 Ping</h3><pre><code>ping是个命令 用来检测网络是否能够到达某个站点或远端IP。
+
+ping使用ICMP协议（Internet Control Message Protocol，控制报文协议），类型（8 ping 0 repley ping）。基于IP协议。
+
+ICMP大致分成两种功能：差错通知和信息查询.</code></pre><h3 id="第五题：要自信-回答问题要确切"><a href="#第五题：要自信-回答问题要确切" class="headerlink" title="第五题：要自信 回答问题要确切"></a>第五题：要自信 回答问题要确切</h3><ul>
+<li>回答问题不要总是以一种让人觉得不确定的口吻。譬如“我认为”，“我觉得”，“可能是”，要更加确定。</li>
+<li>对于不知道的问题说不知道即可。你的了解和面试官的了解可能不一样。</li>
+<li>相信自己的能力</li>
+</ul>
+<h3 id="第六题：golang-GC"><a href="#第六题：golang-GC" class="headerlink" title="第六题：golang GC"></a>第六题：golang GC</h3><h4 id="方案"><a href="#方案" class="headerlink" title="方案"></a>方案</h4><p>三色标记、写屏障，并发标记&amp;清除</p>
+<h4 id="触发"><a href="#触发" class="headerlink" title="触发"></a>触发</h4><p>内存阀值、定时执行、手动执行</p>
+<h4 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h4><ul>
+<li>收集根对象（全局变量，和G stack）</li>
+<li>标记（Mark，Rescan globals/changed stack, finish mark），WB(STW)</li>
+<li>清除</li>
+</ul>
+<h4 id="效率"><a href="#效率" class="headerlink" title="效率"></a>效率</h4><p>sub ms</p>
+<h3 id="第七题：两个文件的数据，得出重复的行数"><a href="#第七题：两个文件的数据，得出重复的行数" class="headerlink" title="第七题：两个文件的数据，得出重复的行数"></a>第七题：两个文件的数据，得出重复的行数</h3><p>面试的时候以为可以使用awk命令进行对比输出。回答错误，自己对于linux命令行的操作没那么熟练。其他方案需要程序读写文件</p>
+<h4 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat a.txt b.txt |sort |uniq -d</span><br></pre></td></tr></table></figure>
+
+<h4 id="知识扩展"><a href="#知识扩展" class="headerlink" title="知识扩展"></a>知识扩展</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">1、 两个文件的交集、并集（前提条件：每个文件中不得有重复 也可以是多个文件）</span><br><span class="line"></span><br><span class="line">(1)、取出两个文件的并集（重复的行只保留一份）</span><br><span class="line">cat file1 file2 | sort | uniq &gt; file3 </span><br><span class="line"></span><br><span class="line">(2)、取出两个文件的交集（只留下同时存在于两个文件中的文件）</span><br><span class="line">cat file1 file2 | sort | uniq -d &gt; file3</span><br><span class="line"></span><br><span class="line">(3)、 删除交集，留下其他的行</span><br><span class="line">cat file1 file2 | sort | uniq -u &gt; file3</span><br><span class="line"></span><br><span class="line">2、两个文件合并</span><br><span class="line"></span><br><span class="line">(1)、 一个文件在上，一个文件在下</span><br><span class="line">cat file1 file2 &gt; file3</span><br><span class="line"></span><br><span class="line">(2)、 一个文件在左，一个文件在右</span><br><span class="line">paste file1 file2 &gt; file3</span><br><span class="line"></span><br><span class="line">3、一个文件去掉重复的行</span><br><span class="line"></span><br><span class="line">(1)、 重复的多行记为一行</span><br><span class="line">sort file |uniq</span><br><span class="line"></span><br><span class="line">(2)、 重复的行全部去掉</span><br><span class="line">sort file |uniq -u</span><br></pre></td></tr></table></figure>
+
+<h3 id="第八题：如何设计一个高可用的系统"><a href="#第八题：如何设计一个高可用的系统" class="headerlink" title="第八题：如何设计一个高可用的系统"></a>第八题：如何设计一个高可用的系统</h3><h4 id="高可用"><a href="#高可用" class="headerlink" title="高可用"></a>高可用</h4><pre><code>冗余备份和失效转移解决高可用问题
+
+服务层：负载均衡 注册发现 服务降级
+
+应用层：无状态 负载均衡 分布式部署
+
+数据层：冗余备份（冷，热备[同步，异步]，温备），失效转移。数据一致性 CPA</code></pre><h4 id="高并发"><a href="#高并发" class="headerlink" title="高并发"></a>高并发</h4><pre><code>高性能的架构是以用户为中心，提供快速的网页访问体验，主要参数有较短的响应时间、较大的并发处理能力、较高的吞吐量与稳定的性能参数。
+
+前端优化：网站业务逻辑之前的部分。
+
+浏览器优化：减少 HTTP 请求数，使用浏览器缓存，启用压缩，CSS JS 位置，JS 异步，减少 Cookie 传输；CDN 加速，反向代理。
+
+应用层优化：处理网站业务的服务器。使用缓存，异步，集群。
+
+代码优化：合理的架构，多线程，资源复用（对象池，线程池等），良好的数据结构，JVM调优，单例，Cache 等。
+
+存储优化：缓存、固态硬盘、光纤传输、优化读写、磁盘冗余、分布式存储（HDFS）、NoSQL 等。</code></pre><h4 id="可伸缩"><a href="#可伸缩" class="headerlink" title="可伸缩"></a>可伸缩</h4><pre><code>应用层：对应用进行垂直或水平切分。然后针对单一功能进行负载均衡（DNS、HTTP[反向代理]、IP、链路层）。
+
+服务层：与应用层类似。
+
+数据层：分库、分表、NoSQL 等；常用算法 Hash，一致性 Hash。</code></pre><h4 id="可扩展"><a href="#可扩展" class="headerlink" title="可扩展"></a>可扩展</h4><pre><code>模块化，组件化：高内聚，低耦合，提高复用性，扩展性。
+
+稳定接口：定义稳定的接口，在接口不变的情况下，内部结构可以“随意”变化。
+
+设计模式：应用面向对象思想，原则，使用设计模式，进行代码层面的设计。
+
+消息队列：模块化的系统，通过消息队列进行交互，使模块之间的依赖解耦。
+
+分布式服务：公用模块服务化，提供其他系统使用，提高可重用性，扩展性。</code></pre><h4 id="安全"><a href="#安全" class="headerlink" title="安全"></a>安全</h4><pre><code>基础设施安全：硬件采购，操作系统，网络环境方面的安全。一般采用正规渠道购买高质量的产品，选择安全的操作系统，及时修补漏洞，安装杀毒软件防火墙。防范病毒，后门。设置防火墙策略，建立 DDOS 防御系统，使用攻击检测系统，进行子网隔离等手段。
+
+应用系统安全：在程序开发时，对已知常用问题，使用正确的方式，在代码层面解决掉。防止跨站脚本攻击（XSS），注入攻击，跨站请求伪造（CSRF），错误信息，HTML 注释，文件上传，路径遍历等。还可以使用 Web 应用防火墙（比如：ModSecurity），进行安全漏洞扫描等措施，加强应用级别的安全。SQL注入
+
+数据保密安全：存储安全（存储在可靠的设备，实时，定时备份），保存安全（重要的信息加密保存，选择合适的人员复杂保存和检测等），传输安全（防止数据窃取和数据篡改）。</code></pre><h4 id="敏捷"><a href="#敏捷" class="headerlink" title="敏捷"></a>敏捷</h4><pre><code>开发流程工具化，运维部署的自动化，监控报警的及时化，解决问题的快速化</code></pre><h3 id="第九题：浏览器输入网址后发生了什么"><a href="#第九题：浏览器输入网址后发生了什么" class="headerlink" title="第九题：浏览器输入网址后发生了什么"></a>第九题：浏览器输入网址后发生了什么</h3><p>答案从网上整理的，主要便于记忆</p>
+<p>1 URL 解析</p>
+<pre><code>解析协议名、host、（端口）、path、params</code></pre><p>2 DNS 查询<br>    通过host 查询DNS找到最终对应的IP，DNS有层层上报查找的功能</p>
+<p>3 TCP 连接</p>
+<pre><code>建立链接，发送数据</code></pre><p>4 处理请求</p>
+<pre><code>服务端进行业务逻辑的处理</code></pre><p>5 接受响应，关闭TCP链接</p>
+<pre><code>服务端处理完成后，返回数据给浏览器</code></pre><p>5 渲染页面</p>
+<pre><code>浏览器获取到资源信息后，渲染页面和执行脚本，完成页面的展示</code></pre><h4 id="如果加入了HTTPS怎么处理"><a href="#如果加入了HTTPS怎么处理" class="headerlink" title="如果加入了HTTPS怎么处理"></a>如果加入了HTTPS怎么处理</h4><p>在第三步之后</p>
+<p>3.1 建立SSL加密通道</p>
+<pre><code>c-&gt;密钥算法套件（加密协议及版本）-&gt;s
+c&lt;-返回确认符合的加密协议、版本和证书(pub_key)&lt;-s
+c-&gt;使用根证书验证证书合法性，生成随机串，利用服务端pub_key RSA加密，生成握手信息，加密握手信息-&gt;s
+s&lt;-解密握手信息，获得随机串，相同的加密方式发给客户端&lt;-s
+c-&gt;解密验证，完成握手。进行通信-&gt;s
+
+使用RSA非对称算法，服务端向客户端发送公钥，公钥包含了域名、颁发机构、过期日期。保证了公钥的合法性和服务端的身份正确性（而不会被黑客冒充）客户端向第三方验证公钥的合法性，验证通过后向服务端约定对称加密的随机字符号。保证了随机字符串只有通信双方知道。接下来的通信就使用这个随机字符号进行加密通信。因为随机字符串只有双方知道，所以信息不会被截获。</code></pre><h3 id="第十题：Mysql中执行一条SQL是如何处理的"><a href="#第十题：Mysql中执行一条SQL是如何处理的" class="headerlink" title="第十题：Mysql中执行一条SQL是如何处理的"></a>第十题：Mysql中执行一条SQL是如何处理的</h3><h4 id="建立链接"><a href="#建立链接" class="headerlink" title="建立链接"></a>建立链接</h4><p>发送带有SQL语句的数据包，数据包大小受到max_allowed_packet的限制</p>
+<h4 id="处理请求"><a href="#处理请求" class="headerlink" title="处理请求"></a>处理请求</h4><ul>
+<li>1 查询缓存</li>
+<li>2 查询优化（SQL的解析、预处理，生成解析树；SQL的执行优化，生成执行计划）</li>
+<li>3 根据执行计划，调用存储引擎实现的接口完成</li>
+</ul>
+<h4 id="返回结果"><a href="#返回结果" class="headerlink" title="返回结果"></a>返回结果</h4>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://xiaxm.com/2019/01/10/golang-patterns/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="xiaxm.com">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="xiaxm">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/01/10/golang-patterns/" class="post-title-link" itemprop="url">golang 模式</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-01-10 17:45:14" itemprop="dateCreated datePublished" datetime="2019-01-10T17:45:14+08:00">2019-01-10</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -214,8 +394,8 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/web%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index">
-                    <span itemprop="name">web前端</span>
+                  <a href="/categories/coding/" itemprop="url" rel="index">
+                    <span itemprop="name">coding</span>
                   </a>
                 </span>
             </span>
@@ -231,19 +411,376 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+          <h2 id="内嵌"><a href="#内嵌" class="headerlink" title="内嵌"></a>内嵌</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">type Reader interface &#123;</span><br><span class="line">    Read(p []byte) (n int, err error)</span><br><span class="line">&#125;</span><br><span class="line">type Writer interface &#123;</span><br><span class="line">    Write(p []byte) (n int, err error)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">type ReadWriter interface &#123;</span><br><span class="line">    Reader</span><br><span class="line">    Writer </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code>结构体也存在类似的情况
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+内嵌的元素为指向结构体的指针，当然它们在使用前必须被初始化为指向有效结构体的指针</code></pre><h3 id="内嵌转发"><a href="#内嵌转发" class="headerlink" title="内嵌转发"></a>内嵌转发</h3><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(rw *ReadWriter)</span> <span class="title">Read</span><span class="params">(p []<span class="keyword">byte</span>)</span> <span class="params">(n <span class="keyword">int</span>, err error)</span></span> &#123; </span><br><span class="line">    <span class="keyword">return</span> rw.reader.Read(p)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当内嵌一个类型时，该类型的方法会成为外部类型的方法， 但当它们被调用时，该方法的接收者是内部类型，而非外部的</p>
+<h2 id="接收者"><a href="#接收者" class="headerlink" title="接收者"></a>接收者</h2><h3 id="Receiver-Names（接受者命名）"><a href="#Receiver-Names（接受者命名）" class="headerlink" title="Receiver Names（接受者命名）"></a>Receiver Names（接受者命名）</h3><pre><code>结构体函数中，接受者的命名不应该采用 me，this，self等通用的名字，而应该采用简短的（1或2个字符）并且能反映出结构体名的命名风格。
 
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+例如，结构体名为Client，接受者可以命名为c或者cl。
 
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+这样做的好处是，当生成了godoc后，过长或者过于具体的命名，会影响搜索体验。
 
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+当接受者的名字足够简单和短时，它几乎可能出现在每一行中（例如c，无处不在），它不必像参数命名那么具体，因为我们几乎不关心接受者的名字。
+
+另外，当一个结构体函数中的接受者命名要保持一致。上例中，如果使用了c，则不要使用cl</code></pre><h3 id="Receiver-Type（接受者类型）"><a href="#Receiver-Type（接受者类型）" class="headerlink" title="Receiver Type（接受者类型）"></a>Receiver Type（接受者类型）</h3><pre><code>编写结构体函数时，接受者的类型到底是选择值还是指针通常难以决定。
+
+一条万能的建议：如果你不知道要使用哪种传递时，请选择指针传递吧！</code></pre><ul>
+<li><p>以下是一些不错的建议：</p>
+<p>  当接受者是map, chan, func, 不要使用指针传递，因为它们本身就是引用类型。<br>  当接受者是slice，而函数内部不会对slice进行切片或者重新分配空间，不要使用指针传递。<br>  当函数内部需要修改接受者，必须使用指针传递。<br>  当接受者是一个结构体，并且包含了sync.Mutex或者类似的用于同步的成员。必须使用指针传递，避免成员拷贝。<br>  当接受者类型是一个结构体并且很庞大，或者是一个大数组，建议使用指针传递来提高性能。<br>  当接受者是结构体，数组或slice，并且其中的元素是指针，并且函数内部可能修改这些元素，那么使用指针传递是个。<br>  不错的选择，这能使得函数的语义更加明确。<br>  当接受者是小型结构体，小数组，并且不需要修改里面的元素，里面的元素又是一些基础类型，使用值传递是个不错的选择。<br>  变量命名 Variable Names 变量命名应该尽可能短，尤其是局部变量。</p>
+<p>  对于一些特殊的变量以及全局变量，我们可能需要对它有更多的描述，使用长命名是个不错的建议。</p>
+</li>
+</ul>
+<h2 id="表驱动测试"><a href="#表驱动测试" class="headerlink" title="表驱动测试"></a>表驱动测试</h2><p>当测试逻辑是重复的时候，通过 subtests 使用 table 驱动的方式编写 case 代码看上去会更简洁。</p>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//错误的示范</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// func TestSplitHostPort(t *testing.T)</span></span><br><span class="line">host, port, err := net.SplitHostPort(<span class="string">"192.0.2.0:8000"</span>)</span><br><span class="line">require.NoError(t, err)</span><br><span class="line">assert.Equal(t, <span class="string">"192.0.2.0"</span>, host)</span><br><span class="line">assert.Equal(t, <span class="string">"8000"</span>, port)</span><br><span class="line"></span><br><span class="line">host, port, err = net.SplitHostPort(<span class="string">"192.0.2.0:http"</span>)</span><br><span class="line">require.NoError(t, err)</span><br><span class="line">assert.Equal(t, <span class="string">"192.0.2.0"</span>, host)</span><br><span class="line">assert.Equal(t, <span class="string">"http"</span>, port)</span><br><span class="line"></span><br><span class="line">host, port, err = net.SplitHostPort(<span class="string">":8000"</span>)</span><br><span class="line">require.NoError(t, err)</span><br><span class="line">assert.Equal(t, <span class="string">""</span>, host)</span><br><span class="line">assert.Equal(t, <span class="string">"8000"</span>, port)</span><br><span class="line"></span><br><span class="line">host, port, err = net.SplitHostPort(<span class="string">"1:8"</span>)</span><br><span class="line">require.NoError(t, err)</span><br><span class="line">assert.Equal(t, <span class="string">"1"</span>, host)</span><br><span class="line">assert.Equal(t, <span class="string">"8"</span>, port)</span><br></pre></td></tr></table></figure>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//推荐的示范</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// func TestSplitHostPort(t *testing.T)</span></span><br><span class="line"></span><br><span class="line">tests := []<span class="keyword">struct</span>&#123;</span><br><span class="line">give     <span class="keyword">string</span></span><br><span class="line">wantHost <span class="keyword">string</span></span><br><span class="line">wantPort <span class="keyword">string</span></span><br><span class="line">&#125;&#123;</span><br><span class="line">&#123;</span><br><span class="line">    give:     <span class="string">"192.0.2.0:8000"</span>,</span><br><span class="line">    wantHost: <span class="string">"192.0.2.0"</span>,</span><br><span class="line">    wantPort: <span class="string">"8000"</span>,</span><br><span class="line">&#125;,</span><br><span class="line">&#123;</span><br><span class="line">    give:     <span class="string">"192.0.2.0:http"</span>,</span><br><span class="line">    wantHost: <span class="string">"192.0.2.0"</span>,</span><br><span class="line">    wantPort: <span class="string">"http"</span>,</span><br><span class="line">&#125;,</span><br><span class="line">&#123;</span><br><span class="line">    give:     <span class="string">":8000"</span>,</span><br><span class="line">    wantHost: <span class="string">""</span>,</span><br><span class="line">    wantPort: <span class="string">"8000"</span>,</span><br><span class="line">&#125;,</span><br><span class="line">&#123;</span><br><span class="line">    give:     <span class="string">"1:8"</span>,</span><br><span class="line">    wantHost: <span class="string">"1"</span>,</span><br><span class="line">    wantPort: <span class="string">"8"</span>,</span><br><span class="line">&#125;,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> _, tt := <span class="keyword">range</span> tests &#123;</span><br><span class="line">    t.Run(tt.give, <span class="function"><span class="keyword">func</span><span class="params">(t *testing.T)</span></span> &#123;</span><br><span class="line">        host, port, err := net.SplitHostPort(tt.give)</span><br><span class="line">        require.NoError(t, err)</span><br><span class="line">        assert.Equal(t, tt.wantHost, host)</span><br><span class="line">        assert.Equal(t, tt.wantPort, port)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="功能选项"><a href="#功能选项" class="headerlink" title="功能选项"></a>功能选项</h2><p>功能选项是一种模式，您可以在其中声明一个不透明 Option 类型，该类型在某些内部结构中记录信息。您接受这些选项的可变编号，并根据内部结构上的选项记录的全部信息采取行动。</p>
+<p>将此模式用于您需要扩展的构造函数和其他公共 API 中的可选参数，尤其是在这些功能上已经具有三个或更多参数的情况下。</p>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//错误的示范</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// package db</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Connect</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">addr <span class="keyword">string</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">timeout time.Duration,</span></span></span><br><span class="line"><span class="function"><span class="params">caching <span class="keyword">bool</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">)</span> <span class="params">(*Connection, error)</span></span> &#123;</span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Timeout and caching must always be provided,</span></span><br><span class="line"><span class="comment">// even if the user wants to use the default.</span></span><br><span class="line"></span><br><span class="line">db.Connect(addr, db.DefaultTimeout, db.DefaultCaching)</span><br><span class="line">db.Connect(addr, newTimeout, db.DefaultCaching)</span><br><span class="line">db.Connect(addr, db.DefaultTimeout, <span class="literal">false</span> <span class="comment">/* caching */</span>)</span><br><span class="line">db.Connect(addr, newTimeout, <span class="literal">false</span> <span class="comment">/* caching */</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//推荐的示范</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> options <span class="keyword">struct</span> &#123;</span><br><span class="line">    timeout time.Duration</span><br><span class="line">    caching <span class="keyword">bool</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Option overrides behavior of Connect.</span></span><br><span class="line"><span class="keyword">type</span> Option <span class="keyword">interface</span> &#123;</span><br><span class="line">    apply(*options)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> optionFunc <span class="function"><span class="keyword">func</span><span class="params">(*options)</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(f optionFunc)</span> <span class="title">apply</span><span class="params">(o *options)</span></span> &#123;</span><br><span class="line">    f(o)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">WithTimeout</span><span class="params">(t time.Duration)</span> <span class="title">Option</span></span> &#123;</span><br><span class="line">    <span class="keyword">return</span> optionFunc(<span class="function"><span class="keyword">func</span><span class="params">(o *options)</span></span> &#123;</span><br><span class="line">        o.timeout = t</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">WithCaching</span><span class="params">(cache <span class="keyword">bool</span>)</span> <span class="title">Option</span></span> &#123;</span><br><span class="line">    <span class="keyword">return</span> optionFunc(<span class="function"><span class="keyword">func</span><span class="params">(o *options)</span></span> &#123;</span><br><span class="line">        o.caching = cache</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Connect creates a connection.</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Connect</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">    addr <span class="keyword">string</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">    opts ...Option,</span></span></span><br><span class="line"><span class="function"><span class="params">)</span> <span class="params">(*Connection, error)</span></span> &#123;</span><br><span class="line">    options := options&#123;</span><br><span class="line">        timeout: defaultTimeout,</span><br><span class="line">        caching: defaultCaching,</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> _, o := <span class="keyword">range</span> opts &#123;</span><br><span class="line">        o.apply(&amp;options)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Options must be provided only if needed.</span></span><br><span class="line"></span><br><span class="line">db.Connect(addr)</span><br><span class="line">db.Connect(addr, db.WithTimeout(newTimeout))</span><br><span class="line">db.Connect(addr, db.WithCaching(<span class="literal">false</span>))</span><br><span class="line">db.Connect(</span><br><span class="line">    addr,</span><br><span class="line">    db.WithCaching(<span class="literal">false</span>),</span><br><span class="line">    db.WithTimeout(newTimeout),</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://xiaxm.com/2018/12/09/golang-style/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="xiaxm.com">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="xiaxm">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/12/09/golang-style/" class="post-title-link" itemprop="url">golang 规范</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2018-12-09 14:55:51" itemprop="dateCreated datePublished" datetime="2018-12-09T14:55:51+08:00">2018-12-09</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/coding/" itemprop="url" rel="index">
+                    <span itemprop="name">coding</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>一致性的代码更容易维护、是更合理的、需要更少的学习成本、并且随着新的约定出现或者出现错误后更容易迁移、更新、修复bug<br>相反，风格不一致的代码库会导致维护成本开销、不确定性和认知偏差，这些都会直接维护成本增加、代码审查痛苦，代码的迁移或更新变得困难</p>
+<h2 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h2><p>将包、常量、变量和类型的声明各自放在同一组中</p>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//错误的示例</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">"a"</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">"b"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> a = <span class="number">1</span></span><br><span class="line"><span class="keyword">const</span> b = <span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">1</span></span><br><span class="line"><span class="keyword">var</span> b = <span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> Area <span class="keyword">float64</span></span><br><span class="line"><span class="keyword">type</span> Volume <span class="keyword">float64</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//正确的示例</span></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">"a"</span></span><br><span class="line">    <span class="string">"b"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> (</span><br><span class="line">    a = <span class="number">1</span></span><br><span class="line">    b = <span class="number">2</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> (</span><br><span class="line">    a = <span class="number">1</span></span><br><span class="line">    b = <span class="number">2</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> (</span><br><span class="line">    Area <span class="keyword">float64</span></span><br><span class="line">    Volume <span class="keyword">float64</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>有且仅将相关的声明放在一组（不要将不相关的声明放在一组）</p>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//错误的示例</span></span><br><span class="line"><span class="keyword">type</span> Operation <span class="keyword">int</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> (</span><br><span class="line">    Add Operation = <span class="literal">iota</span> + <span class="number">1</span></span><br><span class="line">    Subtract</span><br><span class="line">    Multiply</span><br><span class="line">    ENV_VAR = <span class="string">"MY_ENV"</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//正确的示例</span></span><br><span class="line"><span class="keyword">type</span> Operation <span class="keyword">int</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> (</span><br><span class="line">    Add Operation = <span class="literal">iota</span> + <span class="number">1</span></span><br><span class="line">    Subtract</span><br><span class="line">    Multiply</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ENV_VAR = <span class="string">"MY_ENV"</span></span><br></pre></td></tr></table></figure>
+
+<p>分组声明的位置没有限制（可以在函数体内或外部声明）</p>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//错误的示例</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">f</span><span class="params">()</span> <span class="title">string</span></span> &#123;</span><br><span class="line">    <span class="keyword">var</span> red = color.New(<span class="number">0xff0000</span>)</span><br><span class="line">    <span class="keyword">var</span> green = color.New(<span class="number">0x00ff00</span>)</span><br><span class="line">    <span class="keyword">var</span> blue = color.New(<span class="number">0x0000ff</span>)</span><br><span class="line"></span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//正确的示例</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">f</span><span class="params">()</span> <span class="title">string</span></span> &#123;</span><br><span class="line">    <span class="keyword">var</span> (</span><br><span class="line">        red   = color.New(<span class="number">0xff0000</span>)</span><br><span class="line">        green = color.New(<span class="number">0x00ff00</span>)</span><br><span class="line">        blue  = color.New(<span class="number">0x0000ff</span>)</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>倒入的包分为两组（使用goimports可以自动分组）</p>
+<ul>
+<li>系统官方库</li>
+<li>其他库</li>
+</ul>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//错误的示例</span></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">"fmt"</span></span><br><span class="line">    <span class="string">"os"</span></span><br><span class="line">    <span class="string">"go.uber.org/atomic"</span></span><br><span class="line">    <span class="string">"golang.org/x/sync/errgroup"</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//正确的示例</span></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">"fmt"</span></span><br><span class="line">    <span class="string">"os"</span></span><br><span class="line"></span><br><span class="line">    <span class="string">"go.uber.org/atomic"</span></span><br><span class="line">    <span class="string">"golang.org/x/sync/errgroup"</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h2 id="排版"><a href="#排版" class="headerlink" title="排版"></a>排版</h2><p>一个完整的golang文件排版顺序应为：</p>
+<p>遵循的规则</p>
+<ul>
+<li>函数按粗略的调用顺序排序</li>
+<li>函数应按接收者分组</li>
+<li>到处的函数应该放在struct const var 定义后，且位于其他函数前</li>
+<li>普通工具函数位于末尾</li>
+<li>一般情况下，能明确类型时 不用指定类型。如 var a = “string”,如果需要转换类型，可以指定类型</li>
+<li>未导出的顶层常量和变量，使用_作为前缀,未导出的错误值，以err为前缀</li>
+<li>嵌入式类型（例如 mutex）应位于结构体内的字段列表的顶部，下方空行分隔开</li>
+</ul>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> name</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">"net/http"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> XYZ <span class="keyword">struct</span> &#123;</span><br><span class="line">    http.Client</span><br><span class="line"></span><br><span class="line">    version <span class="keyword">int</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> (</span><br><span class="line">    _a = <span class="literal">iota</span> +<span class="number">1</span></span><br><span class="line">    _b</span><br><span class="line">    _c</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> (</span><br><span class="line">    instance *XYZ</span><br><span class="line">    errOne error</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">// NewXYZ/newXYZ</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">NewXYZ</span><span class="params">()</span> *<span class="title">XYZ</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> instance == <span class="literal">nil</span> &#123;</span><br><span class="line">        instance = &amp;XYZ&#123;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(xyz *XYZ)</span><span class="title">func1</span><span class="params">()</span></span>&#123;...&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(xyz *XYZ)</span><span class="title">func2</span><span class="params">()</span></span>&#123;...&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">otherFunc</span><span class="params">()</span></span>&#123;...&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="命名"><a href="#命名" class="headerlink" title="命名"></a>命名</h2><h4 id="包名"><a href="#包名" class="headerlink" title="包名"></a>包名</h4><p>全小写，没有大写和下划线 表意明确，简短且简洁，不用复数，不要用语意不明确的词汇</p>
+<pre><code>//错误的命名
+util common urls encoding_json lib
+
+//正确的命名
+time json base64 url http strconv</code></pre><h4 id="包别名"><a href="#包别名" class="headerlink" title="包别名"></a>包别名</h4><p>如果包名称与导入路径的最后一个元素不匹配，则必须使用导入别名</p>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//需要遵循的示例</span></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">"net/http"</span></span><br><span class="line"></span><br><span class="line">    client <span class="string">"example.com/client_go"</span></span><br><span class="line">    trace <span class="string">"example.com/trace/v2"</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>如果倒入的包命名存在冲突，也需要使用别名</p>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//需要遵循的示例</span></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">"fmt"</span></span><br><span class="line">    <span class="string">"os"</span></span><br><span class="line">    <span class="string">"runtime/trace"</span></span><br><span class="line"></span><br><span class="line">    nettrace <span class="string">"golang.net/x/trace"</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>其他情况禁止使用别名</p>
+<h4 id="函数名"><a href="#函数名" class="headerlink" title="函数名"></a>函数名</h4><p>约定使用驼峰命名（MixedCaps 或 mixedCaps）。测试函数可以使用类似TestFunc_WhatIsBeingTested的命名方式</p>
+<h4 id="接口名"><a href="#接口名" class="headerlink" title="接口名"></a>接口名</h4><p>约定只包含一个方法的接口可以使用该方法的名称加er后缀来使用，如Reader、Writer</p>
+<h3 id="获取器"><a href="#获取器" class="headerlink" title="获取器"></a>获取器</h3><p>如果有一个私有的字段xxx，可以通过obj.Xxx()获取其值, 通过obj.SetXxx()设置其值</p>
+<h2 id="赋值"><a href="#赋值" class="headerlink" title="赋值"></a>赋值</h2><h3 id="空白标识符-The-blank-identifier"><a href="#空白标识符-The-blank-identifier" class="headerlink" title="空白标识符 The blank identifier"></a>空白标识符 The blank identifier</h3><p>不要使用空白标识符(_)忽略错误，任何错误都应该判断和反馈</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://xiaxm.com/2018/11/02/golang-basic/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="xiaxm.com">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="xiaxm">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/11/02/golang-basic/" class="post-title-link" itemprop="url">golang 基础</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2018-11-02 11:50:51" itemprop="dateCreated datePublished" datetime="2018-11-02T11:50:51+08:00">2018-11-02</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/coding/" itemprop="url" rel="index">
+                    <span itemprop="name">coding</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 行注释 </span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 块注释 */</span></span><br></pre></td></tr></table></figure>
+<p>简单的接口使用行注释</p>
+<h2 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h2><h3 id="常量-Constants"><a href="#常量-Constants" class="headerlink" title="常量 Constants"></a>常量 Constants</h3><ul>
+<li>不是变量，编译时被创建，只能是数字 字符 字符串 或 bool</li>
+<li>定义的表达式必须能被编译器识别的常量表达式。如 &lt;&lt; &gt;&gt;</li>
+<li>枚举常量 iota 默认0 自增+1</li>
+</ul>
+<h3 id="变量-Variables"><a href="#变量-Variables" class="headerlink" title="变量 Variables"></a>变量 Variables</h3><ul>
+<li>初始值可以是调用函数获取的值</li>
+</ul>
+<h3 id="Init函数-The-init-function"><a href="#Init函数-The-init-function" class="headerlink" title="Init函数 The init function"></a>Init函数 The init function</h3><ul>
+<li>每个文件可以拥有多个init函数，调用后意味着初始化结束</li>
+<li>导入包 &gt; 变量声明 &gt; init</li>
+</ul>
+<h3 id="数组-Array"><a href="#数组-Array" class="headerlink" title="数组 Array"></a>数组 Array</h3><ul>
+<li>数组是值。将一个数组赋予另一个数组会复制其所有元素。 利用指针传递，避免重复开销</li>
+<li>特别地，若将某个数组传入某个函数，它将接收到该数组的一份副本而非指针。 </li>
+<li>数组的大小是其类型的一部分。类型 [10]int 和 [20]int 是不同的</li>
+</ul>
+<p>一般并不常用array,一般使用slice切片</p>
+<h3 id="切片-Slices"><a href="#切片-Slices" class="headerlink" title="切片 Slices"></a>切片 Slices</h3><pre><code>传递了底层数组的指针,切片拷贝引用的是同一个数组
+不定长度，当len&gt;cap 时，cap翻倍，&gt;1000时 每次增加0.25</code></pre><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 声明空的数组分片</span></span><br><span class="line"><span class="comment">// 这是一个推荐的做法：</span></span><br><span class="line"><span class="keyword">var</span> t []<span class="keyword">string</span></span><br><span class="line"><span class="comment">// 这是不好的：</span></span><br><span class="line">t := []<span class="keyword">string</span>&#123;&#125;</span><br><span class="line"><span class="comment">// 原因是，前者能避免分配内存空间。有些时候，可能你从没向这个数组分片里面append元素</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="二维切片-Two-dimensional-slices"><a href="#二维切片-Two-dimensional-slices" class="headerlink" title="二维切片 Two-dimensional slices"></a>二维切片 Two-dimensional slices</h3><pre><code>数组的数组  切片的切片  每个切片（数组）的长度可以不同。可以分配初始化长度和容量</code></pre><h3 id="映射-Map"><a href="#映射-Map" class="headerlink" title="映射 Map"></a>映射 Map</h3><pre><code>引用类型传递
+获取不存在的key，返回的是该类型的0值
+区分是否存在需要使用多重赋值 如 if seconds, ok := timeZone[tz]...
+删除key  delete(timeZone,&apos;key&apos;)</code></pre><h3 id="接口-interface"><a href="#接口-interface" class="headerlink" title="接口 interface"></a>接口 interface</h3><h3 id="信道-channel"><a href="#信道-channel" class="headerlink" title="信道 channel"></a>信道 channel</h3><p>make 来分配内存，提供缓冲区大小，0表示不带缓冲/同步的信道</p>
+<p>用来处理多协程中的数据交换（通过通信共享内存）</p>
+<p>带缓冲的信道可被用作信号量，例如限制吞吐量。在此例中，进入的请求会被传递给 handle，它从信道中接收值，处理请求后将值发回该信道中，以便让该 “信号量” 准备迎接下 一次请求。信道缓冲区的容量决定了同时调用 process 的数量上限。 //限流 熔断</p>
+<p>这种特性通常被用 来实现安全、并行的多路分解。</p>
+<p>信道中的信道 Channels of channels</p>
+<h2 id="声明-amp-初始化"><a href="#声明-amp-初始化" class="headerlink" title="声明&amp;初始化"></a>声明&amp;初始化</h2><ul>
+<li>new分配：内存置零。它返回一个指针，指针指向新分配的零值。表达式 new(File) 和 &amp;File{} 是等价的。适用于任何类型的创建</li>
+<li>make分配：只用于初始化切片、映射和信道，且不返回指针</li>
+</ul>
+<h2 id="控制结构"><a href="#控制结构" class="headerlink" title="控制结构"></a>控制结构</h2><p>条件语句省略圆括号，主体必须使用大括号</p>
+<h3 id="if"><a href="#if" class="headerlink" title="if"></a>if</h3><pre><code>可以接受条件语句 类似 if err:=func();err!=nil{}</code></pre><h3 id="switch-…-case"><a href="#switch-…-case" class="headerlink" title="switch … case"></a>switch … case</h3><pre><code>默认执行完case后直接break，省略break</code></pre><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 重新声明和再次赋值 Redeclaration and reassignment</span></span><br><span class="line">a,err:=<span class="function"><span class="keyword">func</span><span class="params">()</span></span></span><br><span class="line">b,err:=func2()</span><br><span class="line"><span class="comment">// err在同一作用域下被重新赋值。这种是允许的</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="for"><a href="#for" class="headerlink" title="for"></a>for</h3><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> init; condition; post &#123; &#125;</span><br><span class="line"><span class="keyword">for</span> condition &#123; &#125;  =&gt; while  没有do&#123;&#125;while</span><br><span class="line"><span class="keyword">for</span>&#123;&#125;</span><br><span class="line"><span class="keyword">for</span> k,v:=<span class="keyword">range</span> list&#123;&#125;  =&gt; each</span><br></pre></td></tr></table></figure>
+
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><ul>
+<li>多值返回 Multiple return values，一般将错误返回。</li>
+<li>可命名结果的形参 Named result parameters，func a()(err errors){}</li>
+<li>defer 在同一个代码块声明和释放变量（资源），是一个栈，后进先出LIFO</li>
+<li>检查是否实现了某个接口 m, ok := val.(json.Marshaler)</li>
+</ul>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">testFunc</span><span class="params">()</span><span class="params">(b <span class="keyword">bool</span>, err error)</span></span>&#123;</span><br><span class="line">    b ,err = <span class="literal">true</span>,erorrs.New(<span class="string">""</span>)</span><br><span class="line">    <span class="keyword">defer</span> log.Println(<span class="string">"1"</span>)</span><br><span class="line">    <span class="keyword">defer</span> log.Println(<span class="string">"2"</span>)</span><br><span class="line">    <span class="keyword">defer</span> log.Println(<span class="string">"3"</span>)</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//依次输出 3 2 1</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="类型断言"><a href="#类型断言" class="headerlink" title="类型断言"></a>类型断言</h2><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span> value.(<span class="keyword">type</span>) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">""</span>:</span><br><span class="line">    <span class="keyword">case</span> <span class="string">""</span>:</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">string</span>,ok:=value.(typeName)</span><br></pre></td></tr></table></figure>
+
+<h2 id="错误-Errors"><a href="#错误-Errors" class="headerlink" title="错误 Errors"></a>错误 Errors</h2><p>多值返回。通常附带错误信息 error类型<br>信息一般包含 文件名、操作和触发的操作系统错误<br>Don’t Panic（不要抛出panic）</p>
+<h3 id="panic"><a href="#panic" class="headerlink" title="panic"></a>panic</h3><p>内建函数，终止程序。<br>程序发生意外<br>应该尽量避免panic</p>
+<h3 id="Recovery"><a href="#Recovery" class="headerlink" title="Recovery"></a>Recovery</h3><p>程序Panic时，回溯捕获panic，执行相关逻辑，程序不停止。</p>
+<h2 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h2><h3 id="并发-Concurrency"><a href="#并发-Concurrency" class="headerlink" title="并发 Concurrency"></a>并发 Concurrency</h3><p>通过通信共享内存 Share by communicating</p>
+<p>Go 语言另辟蹊径，它将共享的值通过信道传递，实际上，多个独立执行的线程从不会主动共享。 在任意给定的时间点，只有一个 goroutine 能够访问该值。数据竞争从设计上就被杜绝了</p>
+<p>Do not communicate by sharing memory; instead, share memory by communicating.<br>不要通过共享内存来通信，而应通过通信来共享内存。</p>
+<ul>
+<li>引用计数通过为整数变量添加互斥锁来很好地实现</li>
+<li>但作为一种高级方法，通过信道来控制访问能够让你写出更简洁，正确的程序</li>
+</ul>
+<h3 id="goroutine"><a href="#goroutine" class="headerlink" title="goroutine"></a>goroutine</h3><ul>
+<li><p>Goroutine 的设计隐藏了线程创建和管理的诸多复杂性</p>
+</li>
+<li><p>go doSomething()当调用完成后，该goroutine 也会安静地退出</p>
+</li>
+<li><p>go func(){}() //闭包</p>
+</li>
+</ul>
+<h3 id="并行化-Parallelization"><a href="#并行化-Parallelization" class="headerlink" title="并行化 Parallelization"></a>并行化 Parallelization</h3><p>这些设计的另一个应用是在多 CPU 核心上实现并行计算。如果计算过程能够被分为几块可独 立执行的过程，它就可以在每块计算结束时向信道发送信号，从而实现并行处理。</p>
+<p>runtime.GOMAXPROCS(NCPU) or GOMAXPROCS 设置多核心执行</p>
+<p>Go 仍然是种并发而非并行的语言，且 Go 的模型并不适合所有的并行问题</p>
+<p>并发和并行的区别 并发：同时处理的任务书 并行：在多个核处理任务。 一条马路多车道 vs 多条马路</p>
+<h3 id="可能泄露的缓冲区-A-leaky-buffer"><a href="#可能泄露的缓冲区-A-leaky-buffer" class="headerlink" title="可能泄露的缓冲区 A leaky buffer"></a>可能泄露的缓冲区 A leaky buffer</h3>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://xiaxm.com/2018/10/01/sort-basic-md/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="xiaxm.com">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="xiaxm">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/10/01/sort-basic-md/" class="post-title-link" itemprop="url">几种简单排序算法的golang实现</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2018-10-01 22:21:24" itemprop="dateCreated datePublished" datetime="2018-10-01T22:21:24+08:00">2018-10-01</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/coding/" itemprop="url" rel="index">
+                    <span itemprop="name">coding</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h2><p>两层循环，外层循环表示遍历次数。内层循环对比相邻的两个值，如果a[i]&gt;a[i+1], 则将其值进行交换。时间复杂度O(N^2)</p>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">BubbleSort</span><span class="params">(arr []<span class="keyword">int</span>)</span> []<span class="title">int</span></span> &#123;</span><br><span class="line">	<span class="keyword">for</span> <span class="keyword">range</span> arr &#123;</span><br><span class="line">		<span class="keyword">for</span> k, _ := <span class="keyword">range</span> arr &#123;</span><br><span class="line">			<span class="keyword">if</span> k &gt; <span class="number">0</span> &#123;</span><br><span class="line">				<span class="keyword">if</span> arr[k<span class="number">-1</span>] &gt;= arr[k] &#123;</span><br><span class="line">					arr[k<span class="number">-1</span>], arr[k] = arr[k], arr[k<span class="number">-1</span>]</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> arr</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">TestBubbleSort</span><span class="params">(t *testing.T)</span></span> &#123;</span><br><span class="line">	log.Println(BubbleSort([]<span class="keyword">int</span>&#123;<span class="number">7</span>, <span class="number">5</span>, <span class="number">2</span>, <span class="number">34</span>, <span class="number">65</span>, <span class="number">87</span>, <span class="number">8</span>, <span class="number">34</span>, <span class="number">234</span>, <span class="number">23</span>, <span class="number">56</span>, <span class="number">78</span>, <span class="number">123</span>&#125;))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h2><p>两层循环，外层表示遍历次数。内层循环每次获取最小（最大）值和位置。与头部元素（默认为第0位置，交换后位置+1）进行交换。时间复杂度同样为O(N^2)</p>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">SelectedSort</span><span class="params">(arr []<span class="keyword">int</span>)</span> []<span class="title">int</span></span> &#123;</span><br><span class="line">	pos := <span class="number">0</span></span><br><span class="line">	<span class="keyword">for</span> <span class="keyword">range</span> arr &#123;</span><br><span class="line">		min := <span class="number">0</span></span><br><span class="line">		minKey := <span class="number">0</span></span><br><span class="line">		<span class="keyword">for</span> k, v := <span class="keyword">range</span> arr &#123;</span><br><span class="line">			<span class="keyword">if</span> k &gt;= pos &amp;&amp; (min == <span class="number">0</span> || v &lt;= min) &#123;</span><br><span class="line">				min = v</span><br><span class="line">				minKey = k</span><br><span class="line">				<span class="comment">// log.Println("min", "minKey", min, minKey, pos)</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//位置替换</span></span><br><span class="line">		arr[minKey], arr[pos] = arr[pos], min</span><br><span class="line">		pos++</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> arr</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">TestSelectedSort</span><span class="params">(t *testing.T)</span></span> &#123;</span><br><span class="line">	log.Println(SelectedSort([]<span class="keyword">int</span>&#123;<span class="number">7</span>, <span class="number">5</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">34</span>, <span class="number">65</span>, <span class="number">87</span>, <span class="number">8</span>, <span class="number">34</span>, <span class="number">234</span>, <span class="number">23</span>, <span class="number">56</span>, <span class="number">78</span>, <span class="number">123</span>&#125;))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h2><p>设定基准值（通常取第0位的值），遍历数组，将小于基准值的数移动到基准值左侧。之后左右两侧分为形成新的数组分别选定基准值进行移动。直至长度为1。时间复杂度O(NlogN)</p>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">QuickSort</span><span class="params">(a []<span class="keyword">int</span>, left, right <span class="keyword">int</span>)</span> []<span class="title">int</span></span> &#123;</span><br><span class="line">	<span class="keyword">if</span> left &gt;= right &#123;</span><br><span class="line">		<span class="keyword">return</span> a</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	explodeIndex := left</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> i := left + <span class="number">1</span>; i &lt;= right; i++ &#123;</span><br><span class="line">		<span class="keyword">if</span> a[left] &gt;= a[i] &#123;</span><br><span class="line">			explodeIndex++</span><br><span class="line">			a[i], a[explodeIndex] = a[explodeIndex], a[i]</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	a[left], a[explodeIndex] = a[explodeIndex], a[left]</span><br><span class="line"></span><br><span class="line">	QuickSort(a, left, explodeIndex<span class="number">-1</span>)</span><br><span class="line">	QuickSort(a, explodeIndex+<span class="number">1</span>, right)</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> a</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h2><p>将数组拆分为最小的个体(分)，两两组成一个集合，对集合内部进行排序（治），从而生成一个序列，反复进行集合的合并（合并），最后合并成长度为1的集合。时间复杂度为O(NlogN)</p>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">mergeSort</span><span class="params">(a1, a2 []<span class="keyword">int</span>)</span> <span class="params">(a []<span class="keyword">int</span>)</span></span> &#123;</span><br><span class="line">	a1Pos := <span class="number">0</span></span><br><span class="line">	a2Pos := <span class="number">0</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> &#123;</span><br><span class="line">		<span class="keyword">if</span> <span class="built_in">len</span>(a1) &gt; a1Pos &amp;&amp; <span class="built_in">len</span>(a2) &gt; a2Pos &#123;</span><br><span class="line">			<span class="keyword">if</span> a1[a1Pos] &lt;= a2[a2Pos] &#123;</span><br><span class="line">				a = <span class="built_in">append</span>(a, a1[a1Pos])</span><br><span class="line">				a1Pos++</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">				a = <span class="built_in">append</span>(a, a2[a2Pos])</span><br><span class="line">				a2Pos++</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="keyword">if</span> <span class="built_in">len</span>(a1) &gt; a1Pos &#123;</span><br><span class="line">				a = <span class="built_in">append</span>(a, a1[a1Pos])</span><br><span class="line">				a1Pos++</span><br><span class="line">			&#125; <span class="keyword">else</span> <span class="keyword">if</span> <span class="built_in">len</span>(a2) &gt; a2Pos &#123;</span><br><span class="line">				a = <span class="built_in">append</span>(a, a2[a2Pos])</span><br><span class="line">				a2Pos++</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">				<span class="keyword">return</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">MergeSort</span><span class="params">(arr [][]<span class="keyword">int</span>)</span> [][]<span class="title">int</span></span> &#123;</span><br><span class="line">	<span class="keyword">if</span> <span class="built_in">len</span>(arr) == <span class="number">1</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> arr</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">var</span> group [][]<span class="keyword">int</span></span><br><span class="line">	<span class="keyword">if</span> <span class="built_in">len</span>(arr)%<span class="number">2</span> == <span class="number">1</span> &#123;</span><br><span class="line">		arr = <span class="built_in">append</span>(arr, []<span class="keyword">int</span>&#123;&#125;)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> k, _ := <span class="keyword">range</span> arr &#123;</span><br><span class="line">		<span class="keyword">if</span> k%<span class="number">2</span> == <span class="number">0</span> &#123;</span><br><span class="line">			group = <span class="built_in">append</span>(group, mergeSort(arr[k], arr[k+<span class="number">1</span>]))</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> MergeSort(group)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">TestMergeSort</span><span class="params">(t *testing.T)</span></span> &#123;</span><br><span class="line">	log.Println(MergeSort([][]<span class="keyword">int</span>&#123;</span><br><span class="line">		&#123;<span class="number">1</span>&#125;,</span><br><span class="line">		&#123;<span class="number">3</span>&#125;,</span><br><span class="line">		&#123;<span class="number">5</span>&#125;,</span><br><span class="line">		&#123;<span class="number">7</span>&#125;,</span><br><span class="line">		&#123;<span class="number">9</span>&#125;,</span><br><span class="line">		&#123;<span class="number">-1</span>&#125;,</span><br><span class="line">		&#123;<span class="number">2</span>&#125;,</span><br><span class="line">		&#123;<span class="number">4</span>&#125;,</span><br><span class="line">		&#123;<span class="number">6</span>&#125;,</span><br><span class="line">		&#123;<span class="number">8</span>&#125;,</span><br><span class="line">		&#123;<span class="number">44</span>&#125;,</span><br><span class="line">		&#123;<span class="number">33</span>&#125;,</span><br><span class="line">		&#123;<span class="number">-2</span>&#125;,</span><br><span class="line">	&#125;)[<span class="number">0</span>])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -296,7 +833,7 @@
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">xia xm</p>
+  <p class="site-author-name" itemprop="name">xiaxm.com</p>
   <div class="site-description" itemprop="description"></div>
 </div>
 <div class="site-state-wrap motion-element">
@@ -304,7 +841,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -316,7 +853,7 @@
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -345,17 +882,17 @@
 
 <div class="copyright">
   
-  &copy; 
+  &copy; 2018 – 
   <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">xia xm</span>
+  <span class="author" itemprop="copyrightHolder">xiaxm.com</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.0.0
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a>
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">Theme – <a href="https://mist.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.5.0
+  <div class="theme-info">Theme – <a href="https://mist.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
   </div>
 
         
