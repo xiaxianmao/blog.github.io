@@ -51,15 +51,15 @@
   };
 </script>
 
-  <meta name="description" content="一致性的代码更容易维护、是更合理的、需要更少的学习成本、并且随着新的约定出现或者出现错误后更容易迁移、更新、修复bug相反，风格不一致的代码库会导致维护成本开销、不确定性和认知偏差，这些都会直接维护成本增加、代码审查痛苦，代码的迁移或更新变得困难 声明将包、常量、变量和类型的声明各自放在同一组中 123456789101112&#x2F;&#x2F;错误的示例import &quot;a&quot;import &quot;b&quot;const a =">
+  <meta name="description" content="一致性的代码更容易维护、是更合理的、需要更少的学习成本、并且随着新的约定出现或者出现错误后更容易迁移、更新、修复bug相反，风格不一致的代码库会导致维护成本开销、不确定性和认知偏差，这些都会直接维护成本增加、代码审查痛苦，代码的迁移或更新变得困难">
 <meta name="keywords" content="golang">
 <meta property="og:type" content="article">
-<meta property="og:title" content="golang 规范">
+<meta property="og:title" content="golang 风格">
 <meta property="og:url" content="https:&#x2F;&#x2F;xiaxm.com&#x2F;2018&#x2F;12&#x2F;09&#x2F;golang-style&#x2F;index.html">
 <meta property="og:site_name" content="xiaxm">
-<meta property="og:description" content="一致性的代码更容易维护、是更合理的、需要更少的学习成本、并且随着新的约定出现或者出现错误后更容易迁移、更新、修复bug相反，风格不一致的代码库会导致维护成本开销、不确定性和认知偏差，这些都会直接维护成本增加、代码审查痛苦，代码的迁移或更新变得困难 声明将包、常量、变量和类型的声明各自放在同一组中 123456789101112&#x2F;&#x2F;错误的示例import &quot;a&quot;import &quot;b&quot;const a =">
+<meta property="og:description" content="一致性的代码更容易维护、是更合理的、需要更少的学习成本、并且随着新的约定出现或者出现错误后更容易迁移、更新、修复bug相反，风格不一致的代码库会导致维护成本开销、不确定性和认知偏差，这些都会直接维护成本增加、代码审查痛苦，代码的迁移或更新变得困难">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-11-26T04:21:55.004Z">
+<meta property="og:updated_time" content="2019-12-23T05:54:22.704Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="https://xiaxm.com/2018/12/09/golang-style/">
@@ -76,7 +76,7 @@
   };
 </script>
 
-  <title>golang 规范 | xiaxm</title>
+  <title>golang 风格 | xiaxm</title>
   
 
 
@@ -189,7 +189,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          golang 规范
+          golang 风格
         </h1>
 
         <div class="post-meta">
@@ -207,8 +207,8 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/coding/" itemprop="url" rel="index">
-                    <span itemprop="name">coding</span>
+                  <a href="/categories/%E7%BC%96%E7%A0%81/" itemprop="url" rel="index">
+                    <span itemprop="name">编码</span>
                   </a>
                 </span>
             </span>
@@ -225,6 +225,8 @@
 
       
         <p>一致性的代码更容易维护、是更合理的、需要更少的学习成本、并且随着新的约定出现或者出现错误后更容易迁移、更新、修复bug<br>相反，风格不一致的代码库会导致维护成本开销、不确定性和认知偏差，这些都会直接维护成本增加、代码审查痛苦，代码的迁移或更新变得困难</p>
+<a id="more"></a>
+
 <h2 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h2><p>将包、常量、变量和类型的声明各自放在同一组中</p>
 <figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//错误的示例</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">"a"</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">"b"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> a = <span class="number">1</span></span><br><span class="line"><span class="keyword">const</span> b = <span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">1</span></span><br><span class="line"><span class="keyword">var</span> b = <span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> Area <span class="keyword">float64</span></span><br><span class="line"><span class="keyword">type</span> Volume <span class="keyword">float64</span></span><br></pre></td></tr></table></figure>
 
@@ -355,19 +357,19 @@ time json base64 url http strconv</code></pre><h4 id="包别名"><a href="#包�
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">7</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
