@@ -4,75 +4,46 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.0.0">
+<meta name="generator" content="Hexo 6.2.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
   <link rel="mask-icon" href="/images/logo.svg" color="#222">
-  <link rel="alternate" href="/atom.xml" title="xiaxm" type="application/atom+xml">
 
 <link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
 <script id="hexo-configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Mist',
-    version: '7.5.0',
-    exturl: false,
-    sidebar: {"position":"right","display":"post","offset":12,"onmobile":false},
-    copycode: {"enable":false,"show_result":false,"style":null},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
-    bookmark: {"enable":false,"color":"#222","save":"auto"},
-    fancybox: false,
-    mediumzoom: false,
-    lazyload: false,
-    pangu: false,
-    algolia: {
-      appID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: '',
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    translation: {
-      copy_button: 'Copy',
-      copy_success: 'Copied',
-      copy_failure: 'Copy failed'
-    },
-    sidebarPadding: 40
-  };
-</script>
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.xiaxm.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
 
   <meta name="description" content="本文用golang实现了一些简单的排序算法">
-<meta name="keywords" content="golang,排序算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="几种简单排序算法的golang实现">
-<meta property="og:url" content="https:&#x2F;&#x2F;xiaxm.com&#x2F;2018&#x2F;10&#x2F;01&#x2F;sort-basic-md&#x2F;index.html">
+<meta property="og:url" content="https://blog.xiaxm.com/2018/10/01/sort-basic-md/index.html">
 <meta property="og:site_name" content="xiaxm">
 <meta property="og:description" content="本文用golang实现了一些简单的排序算法">
-<meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-12-23T05:54:07.479Z">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2018-10-01T14:21:24.000Z">
+<meta property="article:modified_time" content="2022-07-12T09:09:57.885Z">
+<meta property="article:author" content="xiaxm">
+<meta property="article:tag" content="golang">
+<meta property="article:tag" content="排序算法">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://xiaxm.com/2018/10/01/sort-basic-md/">
+<link rel="canonical" href="https://blog.xiaxm.com/2018/10/01/sort-basic-md/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: false,
-    isPost: true,
-    isPage: false,
-    isArchive: false
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
   };
 </script>
 
@@ -115,18 +86,6 @@
 
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
-  <div class="site-meta">
-
-    <div>
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">xiaxm</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-        <p class="site-subtitle">Learning and Labor</p>
-  </div>
-
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="Toggle navigation bar">
       <span class="toggle-line toggle-line-first"></span>
@@ -134,25 +93,44 @@
       <span class="toggle-line toggle-line-last"></span>
     </div>
   </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">xiaxm</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Learning and Labor</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
 </div>
 
 
+
+
 <nav class="site-nav">
-  
-  <ul id="menu" class="menu">
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
-
-  </li>
+  <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
 
   </li>
   </ul>
-
 </nav>
+
+
+
+
 </div>
     </header>
 
@@ -168,19 +146,18 @@
         <div class="content-wrap">
           
 
-          <div class="content">
+          <div class="content post posts-expand">
             
 
-  <div class="posts-expand">
-      
+    
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
-    <link itemprop="mainEntityOfPage" href="https://xiaxm.com/2018/10/01/sort-basic-md/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://blog.xiaxm.com/2018/10/01/sort-basic-md/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="xiaxm.com">
+      <meta itemprop="name" content="xiaxm">
       <meta itemprop="description" content="">
     </span>
 
@@ -195,7 +172,7 @@
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
@@ -203,13 +180,11 @@
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
+                <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A0%81/" itemprop="url" rel="index">
-                    <span itemprop="name">编码</span>
-                  </a>
+                  <a href="/categories/%E7%BC%96%E7%A0%81/" itemprop="url" rel="index"><span itemprop="name">编码</span></a>
                 </span>
             </span>
 
@@ -225,27 +200,27 @@
 
       
         <p>本文用golang实现了一些简单的排序算法</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <h2 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h2><p>两层循环，外层循环表示遍历次数。内层循环对比相邻的两个值，如果a[i]&gt;a[i+1], 则将其值进行交换。时间复杂度O(N^2)</p>
-<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">BubbleSort</span><span class="params">(arr []<span class="keyword">int</span>)</span> []<span class="title">int</span></span> &#123;</span><br><span class="line">	<span class="keyword">for</span> <span class="keyword">range</span> arr &#123;</span><br><span class="line">		<span class="keyword">for</span> k, _ := <span class="keyword">range</span> arr &#123;</span><br><span class="line">			<span class="keyword">if</span> k &gt; <span class="number">0</span> &#123;</span><br><span class="line">				<span class="keyword">if</span> arr[k<span class="number">-1</span>] &gt;= arr[k] &#123;</span><br><span class="line">					arr[k<span class="number">-1</span>], arr[k] = arr[k], arr[k<span class="number">-1</span>]</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> arr</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">TestBubbleSort</span><span class="params">(t *testing.T)</span></span> &#123;</span><br><span class="line">	log.Println(BubbleSort([]<span class="keyword">int</span>&#123;<span class="number">7</span>, <span class="number">5</span>, <span class="number">2</span>, <span class="number">34</span>, <span class="number">65</span>, <span class="number">87</span>, <span class="number">8</span>, <span class="number">34</span>, <span class="number">234</span>, <span class="number">23</span>, <span class="number">56</span>, <span class="number">78</span>, <span class="number">123</span>&#125;))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">BubbleSort</span><span class="params">(arr []<span class="type">int</span>)</span></span> []<span class="type">int</span> &#123;</span><br><span class="line">	<span class="keyword">for</span> <span class="keyword">range</span> arr &#123;</span><br><span class="line">		<span class="keyword">for</span> k, _ := <span class="keyword">range</span> arr &#123;</span><br><span class="line">			<span class="keyword">if</span> k &gt; <span class="number">0</span> &#123;</span><br><span class="line">				<span class="keyword">if</span> arr[k<span class="number">-1</span>] &gt;= arr[k] &#123;</span><br><span class="line">					arr[k<span class="number">-1</span>], arr[k] = arr[k], arr[k<span class="number">-1</span>]</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> arr</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">TestBubbleSort</span><span class="params">(t *testing.T)</span></span> &#123;</span><br><span class="line">	log.Println(BubbleSort([]<span class="type">int</span>&#123;<span class="number">7</span>, <span class="number">5</span>, <span class="number">2</span>, <span class="number">34</span>, <span class="number">65</span>, <span class="number">87</span>, <span class="number">8</span>, <span class="number">34</span>, <span class="number">234</span>, <span class="number">23</span>, <span class="number">56</span>, <span class="number">78</span>, <span class="number">123</span>&#125;))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 <h2 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h2><p>两层循环，外层表示遍历次数。内层循环每次获取最小（最大）值和位置。与头部元素（默认为第0位置，交换后位置+1）进行交换。时间复杂度同样为O(N^2)</p>
-<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">SelectedSort</span><span class="params">(arr []<span class="keyword">int</span>)</span> []<span class="title">int</span></span> &#123;</span><br><span class="line">	pos := <span class="number">0</span></span><br><span class="line">	<span class="keyword">for</span> <span class="keyword">range</span> arr &#123;</span><br><span class="line">		min := <span class="number">0</span></span><br><span class="line">		minKey := <span class="number">0</span></span><br><span class="line">		<span class="keyword">for</span> k, v := <span class="keyword">range</span> arr &#123;</span><br><span class="line">			<span class="keyword">if</span> k &gt;= pos &amp;&amp; (min == <span class="number">0</span> || v &lt;= min) &#123;</span><br><span class="line">				min = v</span><br><span class="line">				minKey = k</span><br><span class="line">				<span class="comment">// log.Println("min", "minKey", min, minKey, pos)</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//位置替换</span></span><br><span class="line">		arr[minKey], arr[pos] = arr[pos], min</span><br><span class="line">		pos++</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> arr</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">TestSelectedSort</span><span class="params">(t *testing.T)</span></span> &#123;</span><br><span class="line">	log.Println(SelectedSort([]<span class="keyword">int</span>&#123;<span class="number">7</span>, <span class="number">5</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">34</span>, <span class="number">65</span>, <span class="number">87</span>, <span class="number">8</span>, <span class="number">34</span>, <span class="number">234</span>, <span class="number">23</span>, <span class="number">56</span>, <span class="number">78</span>, <span class="number">123</span>&#125;))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">SelectedSort</span><span class="params">(arr []<span class="type">int</span>)</span></span> []<span class="type">int</span> &#123;</span><br><span class="line">	pos := <span class="number">0</span></span><br><span class="line">	<span class="keyword">for</span> <span class="keyword">range</span> arr &#123;</span><br><span class="line">		min := <span class="number">0</span></span><br><span class="line">		minKey := <span class="number">0</span></span><br><span class="line">		<span class="keyword">for</span> k, v := <span class="keyword">range</span> arr &#123;</span><br><span class="line">			<span class="keyword">if</span> k &gt;= pos &amp;&amp; (min == <span class="number">0</span> || v &lt;= min) &#123;</span><br><span class="line">				min = v</span><br><span class="line">				minKey = k</span><br><span class="line">				<span class="comment">// log.Println(&quot;min&quot;, &quot;minKey&quot;, min, minKey, pos)</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//位置替换</span></span><br><span class="line">		arr[minKey], arr[pos] = arr[pos], min</span><br><span class="line">		pos++</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> arr</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">TestSelectedSort</span><span class="params">(t *testing.T)</span></span> &#123;</span><br><span class="line">	log.Println(SelectedSort([]<span class="type">int</span>&#123;<span class="number">7</span>, <span class="number">5</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">34</span>, <span class="number">65</span>, <span class="number">87</span>, <span class="number">8</span>, <span class="number">34</span>, <span class="number">234</span>, <span class="number">23</span>, <span class="number">56</span>, <span class="number">78</span>, <span class="number">123</span>&#125;))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h2><p>设定基准值（通常取第0位的值），遍历数组，将小于基准值的数移动到基准值左侧。之后左右两侧分为形成新的数组分别选定基准值进行移动。直至长度为1。时间复杂度O(NlogN)</p>
-<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">QuickSort</span><span class="params">(a []<span class="keyword">int</span>, left, right <span class="keyword">int</span>)</span> []<span class="title">int</span></span> &#123;</span><br><span class="line">	<span class="keyword">if</span> left &gt;= right &#123;</span><br><span class="line">		<span class="keyword">return</span> a</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	explodeIndex := left</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> i := left + <span class="number">1</span>; i &lt;= right; i++ &#123;</span><br><span class="line">		<span class="keyword">if</span> a[left] &gt;= a[i] &#123;</span><br><span class="line">			explodeIndex++</span><br><span class="line">			a[i], a[explodeIndex] = a[explodeIndex], a[i]</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	a[left], a[explodeIndex] = a[explodeIndex], a[left]</span><br><span class="line"></span><br><span class="line">	QuickSort(a, left, explodeIndex<span class="number">-1</span>)</span><br><span class="line">	QuickSort(a, explodeIndex+<span class="number">1</span>, right)</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> a</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">QuickSort</span><span class="params">(a []<span class="type">int</span>, left, right <span class="type">int</span>)</span></span> []<span class="type">int</span> &#123;</span><br><span class="line">	<span class="keyword">if</span> left &gt;= right &#123;</span><br><span class="line">		<span class="keyword">return</span> a</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	explodeIndex := left</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> i := left + <span class="number">1</span>; i &lt;= right; i++ &#123;</span><br><span class="line">		<span class="keyword">if</span> a[left] &gt;= a[i] &#123;</span><br><span class="line">			explodeIndex++</span><br><span class="line">			a[i], a[explodeIndex] = a[explodeIndex], a[i]</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	a[left], a[explodeIndex] = a[explodeIndex], a[left]</span><br><span class="line"></span><br><span class="line">	QuickSort(a, left, explodeIndex<span class="number">-1</span>)</span><br><span class="line">	QuickSort(a, explodeIndex+<span class="number">1</span>, right)</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> a</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h2><p>将数组拆分为最小的个体(分)，两两组成一个集合，对集合内部进行排序（治），从而生成一个序列，反复进行集合的合并（合并），最后合并成长度为1的集合。时间复杂度为O(NlogN)</p>
-<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">mergeSort</span><span class="params">(a1, a2 []<span class="keyword">int</span>)</span> <span class="params">(a []<span class="keyword">int</span>)</span></span> &#123;</span><br><span class="line">	a1Pos := <span class="number">0</span></span><br><span class="line">	a2Pos := <span class="number">0</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> &#123;</span><br><span class="line">		<span class="keyword">if</span> <span class="built_in">len</span>(a1) &gt; a1Pos &amp;&amp; <span class="built_in">len</span>(a2) &gt; a2Pos &#123;</span><br><span class="line">			<span class="keyword">if</span> a1[a1Pos] &lt;= a2[a2Pos] &#123;</span><br><span class="line">				a = <span class="built_in">append</span>(a, a1[a1Pos])</span><br><span class="line">				a1Pos++</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">				a = <span class="built_in">append</span>(a, a2[a2Pos])</span><br><span class="line">				a2Pos++</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="keyword">if</span> <span class="built_in">len</span>(a1) &gt; a1Pos &#123;</span><br><span class="line">				a = <span class="built_in">append</span>(a, a1[a1Pos])</span><br><span class="line">				a1Pos++</span><br><span class="line">			&#125; <span class="keyword">else</span> <span class="keyword">if</span> <span class="built_in">len</span>(a2) &gt; a2Pos &#123;</span><br><span class="line">				a = <span class="built_in">append</span>(a, a2[a2Pos])</span><br><span class="line">				a2Pos++</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">				<span class="keyword">return</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">MergeSort</span><span class="params">(arr [][]<span class="keyword">int</span>)</span> [][]<span class="title">int</span></span> &#123;</span><br><span class="line">	<span class="keyword">if</span> <span class="built_in">len</span>(arr) == <span class="number">1</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> arr</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">var</span> group [][]<span class="keyword">int</span></span><br><span class="line">	<span class="keyword">if</span> <span class="built_in">len</span>(arr)%<span class="number">2</span> == <span class="number">1</span> &#123;</span><br><span class="line">		arr = <span class="built_in">append</span>(arr, []<span class="keyword">int</span>&#123;&#125;)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> k, _ := <span class="keyword">range</span> arr &#123;</span><br><span class="line">		<span class="keyword">if</span> k%<span class="number">2</span> == <span class="number">0</span> &#123;</span><br><span class="line">			group = <span class="built_in">append</span>(group, mergeSort(arr[k], arr[k+<span class="number">1</span>]))</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> MergeSort(group)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">TestMergeSort</span><span class="params">(t *testing.T)</span></span> &#123;</span><br><span class="line">	log.Println(MergeSort([][]<span class="keyword">int</span>&#123;</span><br><span class="line">		&#123;<span class="number">1</span>&#125;,</span><br><span class="line">		&#123;<span class="number">3</span>&#125;,</span><br><span class="line">		&#123;<span class="number">5</span>&#125;,</span><br><span class="line">		&#123;<span class="number">7</span>&#125;,</span><br><span class="line">		&#123;<span class="number">9</span>&#125;,</span><br><span class="line">		&#123;<span class="number">-1</span>&#125;,</span><br><span class="line">		&#123;<span class="number">2</span>&#125;,</span><br><span class="line">		&#123;<span class="number">4</span>&#125;,</span><br><span class="line">		&#123;<span class="number">6</span>&#125;,</span><br><span class="line">		&#123;<span class="number">8</span>&#125;,</span><br><span class="line">		&#123;<span class="number">44</span>&#125;,</span><br><span class="line">		&#123;<span class="number">33</span>&#125;,</span><br><span class="line">		&#123;<span class="number">-2</span>&#125;,</span><br><span class="line">	&#125;)[<span class="number">0</span>])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">mergeSort</span><span class="params">(a1, a2 []<span class="type">int</span>)</span></span> (a []<span class="type">int</span>) &#123;</span><br><span class="line">	a1Pos := <span class="number">0</span></span><br><span class="line">	a2Pos := <span class="number">0</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> &#123;</span><br><span class="line">		<span class="keyword">if</span> <span class="built_in">len</span>(a1) &gt; a1Pos &amp;&amp; <span class="built_in">len</span>(a2) &gt; a2Pos &#123;</span><br><span class="line">			<span class="keyword">if</span> a1[a1Pos] &lt;= a2[a2Pos] &#123;</span><br><span class="line">				a = <span class="built_in">append</span>(a, a1[a1Pos])</span><br><span class="line">				a1Pos++</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">				a = <span class="built_in">append</span>(a, a2[a2Pos])</span><br><span class="line">				a2Pos++</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="keyword">if</span> <span class="built_in">len</span>(a1) &gt; a1Pos &#123;</span><br><span class="line">				a = <span class="built_in">append</span>(a, a1[a1Pos])</span><br><span class="line">				a1Pos++</span><br><span class="line">			&#125; <span class="keyword">else</span> <span class="keyword">if</span> <span class="built_in">len</span>(a2) &gt; a2Pos &#123;</span><br><span class="line">				a = <span class="built_in">append</span>(a, a2[a2Pos])</span><br><span class="line">				a2Pos++</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">				<span class="keyword">return</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">MergeSort</span><span class="params">(arr [][]<span class="type">int</span>)</span></span> [][]<span class="type">int</span> &#123;</span><br><span class="line">	<span class="keyword">if</span> <span class="built_in">len</span>(arr) == <span class="number">1</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> arr</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">var</span> group [][]<span class="type">int</span></span><br><span class="line">	<span class="keyword">if</span> <span class="built_in">len</span>(arr)%<span class="number">2</span> == <span class="number">1</span> &#123;</span><br><span class="line">		arr = <span class="built_in">append</span>(arr, []<span class="type">int</span>&#123;&#125;)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> k, _ := <span class="keyword">range</span> arr &#123;</span><br><span class="line">		<span class="keyword">if</span> k%<span class="number">2</span> == <span class="number">0</span> &#123;</span><br><span class="line">			group = <span class="built_in">append</span>(group, mergeSort(arr[k], arr[k+<span class="number">1</span>]))</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> MergeSort(group)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">TestMergeSort</span><span class="params">(t *testing.T)</span></span> &#123;</span><br><span class="line">	log.Println(MergeSort([][]<span class="type">int</span>&#123;</span><br><span class="line">		&#123;<span class="number">1</span>&#125;,</span><br><span class="line">		&#123;<span class="number">3</span>&#125;,</span><br><span class="line">		&#123;<span class="number">5</span>&#125;,</span><br><span class="line">		&#123;<span class="number">7</span>&#125;,</span><br><span class="line">		&#123;<span class="number">9</span>&#125;,</span><br><span class="line">		&#123;<span class="number">-1</span>&#125;,</span><br><span class="line">		&#123;<span class="number">2</span>&#125;,</span><br><span class="line">		&#123;<span class="number">4</span>&#125;,</span><br><span class="line">		&#123;<span class="number">6</span>&#125;,</span><br><span class="line">		&#123;<span class="number">8</span>&#125;,</span><br><span class="line">		&#123;<span class="number">44</span>&#125;,</span><br><span class="line">		&#123;<span class="number">33</span>&#125;,</span><br><span class="line">		&#123;<span class="number">-2</span>&#125;,</span><br><span class="line">	&#125;)[<span class="number">0</span>])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h2><p>先生成完全二叉树，在将最大（最小）元素层层递归到ROOT节点。后取下ROOT节点，插入到有序数组。将最后的节点值替换掉ROOT节点，重新层层递归，知道将所有数组的值全部插入有序数组。</p>
-<h3 id="调用"><a href="#调用" class="headerlink" title="调用"></a>调用</h3><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">TestSort</span><span class="params">(t *testing.T)</span></span> &#123;</span><br><span class="line">	h := New()</span><br><span class="line"></span><br><span class="line">	h.Init([]<span class="keyword">int</span>&#123;<span class="number">67</span>, <span class="number">4</span>, <span class="number">2</span>, <span class="number">456</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">234</span>, <span class="number">7960</span>&#125;)</span><br><span class="line">	h.Sort()</span><br><span class="line">	log.Println(h.SortList)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="调用"><a href="#调用" class="headerlink" title="调用"></a>调用</h3><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">TestSort</span><span class="params">(t *testing.T)</span></span> &#123;</span><br><span class="line">	h := New()</span><br><span class="line"></span><br><span class="line">	h.Init([]<span class="type">int</span>&#123;<span class="number">67</span>, <span class="number">4</span>, <span class="number">2</span>, <span class="number">456</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">234</span>, <span class="number">7960</span>&#125;)</span><br><span class="line">	h.Sort()</span><br><span class="line">	log.Println(h.SortList)</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 堆排序</span></span><br><span class="line"><span class="keyword">package</span> heap</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"log"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> Heap <span class="keyword">struct</span> &#123;</span><br><span class="line">	<span class="comment">// Root int</span></span><br><span class="line">	<span class="comment">// Typ   int //1 顶小堆 顶大堆</span></span><br><span class="line">	Nodes    <span class="keyword">map</span>[<span class="keyword">int</span>]*Node</span><br><span class="line">	Len      <span class="keyword">int</span></span><br><span class="line">	SortList []<span class="keyword">int</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> Node <span class="keyword">struct</span> &#123;</span><br><span class="line">	Position <span class="keyword">int</span></span><br><span class="line">	Value    <span class="keyword">int</span></span><br><span class="line">	<span class="comment">// ParentNode    pos/2</span></span><br><span class="line">	<span class="comment">// LeftChildNode   pos*2</span></span><br><span class="line">	<span class="comment">// RightChildNode  pos*2+1</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">New</span><span class="params">()</span> *<span class="title">Heap</span></span> &#123;</span><br><span class="line">	<span class="keyword">return</span> &amp;Heap&#123;</span><br><span class="line">		Nodes:    <span class="keyword">map</span>[<span class="keyword">int</span>]*Node&#123;&#125;,</span><br><span class="line">		Len:      <span class="number">0</span>,</span><br><span class="line">		SortList: []<span class="keyword">int</span>&#123;&#125;,</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(h *Heap)</span> <span class="title">Init</span><span class="params">(arr []<span class="keyword">int</span>)</span></span> &#123;</span><br><span class="line">	<span class="keyword">for</span> k, i := <span class="keyword">range</span> arr &#123;</span><br><span class="line">		h.Nodes[k+<span class="number">1</span>] = &amp;Node&#123;</span><br><span class="line">			Position: k + <span class="number">1</span>,</span><br><span class="line">			Value:    i,</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	h.Len = <span class="built_in">len</span>(arr)</span><br><span class="line">	<span class="keyword">return</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将ROOT节点append到sortlist，且将最后的元素添加到ROOT节点，删除最后的节点，重新排序。直至只有一个节点为止</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(h *Heap)</span> <span class="title">Sort</span><span class="params">()</span></span> &#123;</span><br><span class="line">	lastParentPos := h.Len / <span class="number">2</span></span><br><span class="line">	<span class="comment">//所有父节点</span></span><br><span class="line">	<span class="keyword">for</span> i := lastParentPos; i &gt; <span class="number">0</span>; i-- &#123;</span><br><span class="line">		<span class="comment">// h.MinRotation(i) //（顶小堆）</span></span><br><span class="line">		h.MaxRotation(i)    <span class="comment">//（顶大堆）</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	h.SortList = <span class="built_in">append</span>(h.SortList, h.Nodes[<span class="number">1</span>].Value)</span><br><span class="line"></span><br><span class="line">	<span class="comment">//</span></span><br><span class="line">	h.Nodes[<span class="number">1</span>] = h.Nodes[h.Len]</span><br><span class="line">	<span class="built_in">delete</span>(h.Nodes, h.Len)</span><br><span class="line">	h.Len = <span class="built_in">len</span>(h.Nodes)</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> h.Len &gt; <span class="number">0</span> &#123;</span><br><span class="line">		h.Sort()</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="keyword">return</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(h *Heap)</span> <span class="title">MinRotation</span><span class="params">(nodePos <span class="keyword">int</span>)</span></span> &#123;</span><br><span class="line">	<span class="comment">//获取左右孩子</span></span><br><span class="line">	leftNodePos := nodePos * <span class="number">2</span></span><br><span class="line">	RightNodePos := leftNodePos + <span class="number">1</span></span><br><span class="line">	log.Println(nodePos, leftNodePos)</span><br><span class="line">	<span class="keyword">if</span> RightNodePos &gt; h.Len &#123;</span><br><span class="line">		<span class="comment">//右节点不存在</span></span><br><span class="line">		<span class="keyword">if</span> h.Nodes[leftNodePos].Value &lt; h.Nodes[nodePos].Value &#123;</span><br><span class="line">			h.Nodes[nodePos], h.Nodes[leftNodePos] = h.Nodes[leftNodePos], h.Nodes[nodePos]</span><br><span class="line">		&#125;</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="comment">// 判断当前父节点谁最小</span></span><br><span class="line">		<span class="keyword">if</span> h.Nodes[leftNodePos].Value &lt; h.Nodes[nodePos].Value || h.Nodes[RightNodePos].Value &lt; h.Nodes[nodePos].Value &#123;</span><br><span class="line">			<span class="keyword">if</span> h.Nodes[leftNodePos].Value &lt; h.Nodes[RightNodePos].Value &#123;</span><br><span class="line">				h.Nodes[nodePos], h.Nodes[leftNodePos] = h.Nodes[leftNodePos], h.Nodes[nodePos]</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">				h.Nodes[nodePos], h.Nodes[RightNodePos] = h.Nodes[RightNodePos], h.Nodes[nodePos]</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(h *Heap)</span> <span class="title">MaxRotation</span><span class="params">(nodePos <span class="keyword">int</span>)</span></span> &#123;</span><br><span class="line">	<span class="comment">//获取左右孩子</span></span><br><span class="line">	leftNodePos := nodePos * <span class="number">2</span></span><br><span class="line">	RightNodePos := leftNodePos + <span class="number">1</span></span><br><span class="line">	log.Println(nodePos, leftNodePos)</span><br><span class="line">	<span class="keyword">if</span> RightNodePos &gt; h.Len &#123;</span><br><span class="line">		<span class="comment">//右节点不存在</span></span><br><span class="line">		<span class="keyword">if</span> h.Nodes[leftNodePos].Value &gt; h.Nodes[nodePos].Value &#123;</span><br><span class="line">			h.Nodes[nodePos], h.Nodes[leftNodePos] = h.Nodes[leftNodePos], h.Nodes[nodePos]</span><br><span class="line">		&#125;</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="comment">// 判断当前父节点谁最小</span></span><br><span class="line">		<span class="keyword">if</span> h.Nodes[leftNodePos].Value &gt; h.Nodes[nodePos].Value || h.Nodes[RightNodePos].Value &gt; h.Nodes[nodePos].Value &#123;</span><br><span class="line">			<span class="keyword">if</span> h.Nodes[leftNodePos].Value &gt; h.Nodes[RightNodePos].Value &#123;</span><br><span class="line">				h.Nodes[nodePos], h.Nodes[leftNodePos] = h.Nodes[leftNodePos], h.Nodes[nodePos]</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">				h.Nodes[nodePos], h.Nodes[RightNodePos] = h.Nodes[RightNodePos], h.Nodes[nodePos]</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 堆排序</span></span><br><span class="line"><span class="keyword">package</span> heap</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;log&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> Heap <span class="keyword">struct</span> &#123;</span><br><span class="line">	<span class="comment">// Root int</span></span><br><span class="line">	<span class="comment">// Typ   int //1 顶小堆 顶大堆</span></span><br><span class="line">	Nodes    <span class="keyword">map</span>[<span class="type">int</span>]*Node</span><br><span class="line">	Len      <span class="type">int</span></span><br><span class="line">	SortList []<span class="type">int</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> Node <span class="keyword">struct</span> &#123;</span><br><span class="line">	Position <span class="type">int</span></span><br><span class="line">	Value    <span class="type">int</span></span><br><span class="line">	<span class="comment">// ParentNode    pos/2</span></span><br><span class="line">	<span class="comment">// LeftChildNode   pos*2</span></span><br><span class="line">	<span class="comment">// RightChildNode  pos*2+1</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">New</span><span class="params">()</span></span> *Heap &#123;</span><br><span class="line">	<span class="keyword">return</span> &amp;Heap&#123;</span><br><span class="line">		Nodes:    <span class="keyword">map</span>[<span class="type">int</span>]*Node&#123;&#125;,</span><br><span class="line">		Len:      <span class="number">0</span>,</span><br><span class="line">		SortList: []<span class="type">int</span>&#123;&#125;,</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(h *Heap)</span></span> Init(arr []<span class="type">int</span>) &#123;</span><br><span class="line">	<span class="keyword">for</span> k, i := <span class="keyword">range</span> arr &#123;</span><br><span class="line">		h.Nodes[k+<span class="number">1</span>] = &amp;Node&#123;</span><br><span class="line">			Position: k + <span class="number">1</span>,</span><br><span class="line">			Value:    i,</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	h.Len = <span class="built_in">len</span>(arr)</span><br><span class="line">	<span class="keyword">return</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将ROOT节点append到sortlist，且将最后的元素添加到ROOT节点，删除最后的节点，重新排序。直至只有一个节点为止</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(h *Heap)</span></span> Sort() &#123;</span><br><span class="line">	lastParentPos := h.Len / <span class="number">2</span></span><br><span class="line">	<span class="comment">//所有父节点</span></span><br><span class="line">	<span class="keyword">for</span> i := lastParentPos; i &gt; <span class="number">0</span>; i-- &#123;</span><br><span class="line">		<span class="comment">// h.MinRotation(i) //（顶小堆）</span></span><br><span class="line">		h.MaxRotation(i)    <span class="comment">//（顶大堆）</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	h.SortList = <span class="built_in">append</span>(h.SortList, h.Nodes[<span class="number">1</span>].Value)</span><br><span class="line"></span><br><span class="line">	<span class="comment">//</span></span><br><span class="line">	h.Nodes[<span class="number">1</span>] = h.Nodes[h.Len]</span><br><span class="line">	<span class="built_in">delete</span>(h.Nodes, h.Len)</span><br><span class="line">	h.Len = <span class="built_in">len</span>(h.Nodes)</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> h.Len &gt; <span class="number">0</span> &#123;</span><br><span class="line">		h.Sort()</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="keyword">return</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(h *Heap)</span></span> MinRotation(nodePos <span class="type">int</span>) &#123;</span><br><span class="line">	<span class="comment">//获取左右孩子</span></span><br><span class="line">	leftNodePos := nodePos * <span class="number">2</span></span><br><span class="line">	RightNodePos := leftNodePos + <span class="number">1</span></span><br><span class="line">	log.Println(nodePos, leftNodePos)</span><br><span class="line">	<span class="keyword">if</span> RightNodePos &gt; h.Len &#123;</span><br><span class="line">		<span class="comment">//右节点不存在</span></span><br><span class="line">		<span class="keyword">if</span> h.Nodes[leftNodePos].Value &lt; h.Nodes[nodePos].Value &#123;</span><br><span class="line">			h.Nodes[nodePos], h.Nodes[leftNodePos] = h.Nodes[leftNodePos], h.Nodes[nodePos]</span><br><span class="line">		&#125;</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="comment">// 判断当前父节点谁最小</span></span><br><span class="line">		<span class="keyword">if</span> h.Nodes[leftNodePos].Value &lt; h.Nodes[nodePos].Value || h.Nodes[RightNodePos].Value &lt; h.Nodes[nodePos].Value &#123;</span><br><span class="line">			<span class="keyword">if</span> h.Nodes[leftNodePos].Value &lt; h.Nodes[RightNodePos].Value &#123;</span><br><span class="line">				h.Nodes[nodePos], h.Nodes[leftNodePos] = h.Nodes[leftNodePos], h.Nodes[nodePos]</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">				h.Nodes[nodePos], h.Nodes[RightNodePos] = h.Nodes[RightNodePos], h.Nodes[nodePos]</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(h *Heap)</span></span> MaxRotation(nodePos <span class="type">int</span>) &#123;</span><br><span class="line">	<span class="comment">//获取左右孩子</span></span><br><span class="line">	leftNodePos := nodePos * <span class="number">2</span></span><br><span class="line">	RightNodePos := leftNodePos + <span class="number">1</span></span><br><span class="line">	log.Println(nodePos, leftNodePos)</span><br><span class="line">	<span class="keyword">if</span> RightNodePos &gt; h.Len &#123;</span><br><span class="line">		<span class="comment">//右节点不存在</span></span><br><span class="line">		<span class="keyword">if</span> h.Nodes[leftNodePos].Value &gt; h.Nodes[nodePos].Value &#123;</span><br><span class="line">			h.Nodes[nodePos], h.Nodes[leftNodePos] = h.Nodes[leftNodePos], h.Nodes[nodePos]</span><br><span class="line">		&#125;</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="comment">// 判断当前父节点谁最小</span></span><br><span class="line">		<span class="keyword">if</span> h.Nodes[leftNodePos].Value &gt; h.Nodes[nodePos].Value || h.Nodes[RightNodePos].Value &gt; h.Nodes[nodePos].Value &#123;</span><br><span class="line">			<span class="keyword">if</span> h.Nodes[leftNodePos].Value &gt; h.Nodes[RightNodePos].Value &#123;</span><br><span class="line">				h.Nodes[nodePos], h.Nodes[leftNodePos] = h.Nodes[leftNodePos], h.Nodes[nodePos]</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">				h.Nodes[nodePos], h.Nodes[RightNodePos] = h.Nodes[RightNodePos], h.Nodes[nodePos]</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h3 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">2019/12/18 23:50:53 [7960 456 234 67 9 8 4 2]</span><br><span class="line">--- PASS: TestSort (0.00s)</span><br><span class="line">PASS</span><br><span class="line">ok      <span class="built_in">command</span>-line-arguments  (cached)</span><br></pre></td></tr></table></figure>
+<h3 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">2019/12/18 23:50:53 [7960 456 234 67 9 8 4 2]</span><br><span class="line">--- PASS: TestSort (0.00s)</span><br><span class="line">PASS</span><br><span class="line">ok      command-line-arguments  (cached)</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -260,18 +235,15 @@
 
         
 
-          <div class="post-nav">
-            <div class="post-nav-next post-nav-item">
-            </div>
 
-            <span class="post-nav-divider"></span>
-
-            <div class="post-nav-prev post-nav-item">
-                <a href="/2018/11/02/golang-basic/" rel="prev" title="golang 基础">
-                  golang 基础 <i class="fa fa-chevron-right"></i>
-                </a>
-            </div>
-          </div>
+        
+    <div class="post-nav">
+      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2018/11/02/golang-basic/" rel="next" title="golang 基础">
+      golang 基础 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
       </footer>
     
   </article>
@@ -279,11 +251,32 @@
   
   
 
-  </div>
 
 
           </div>
           
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
 
         </div>
           
@@ -308,13 +301,13 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#冒泡排序"><span class="nav-number">1.</span> <span class="nav-text">冒泡排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#选择排序"><span class="nav-number">2.</span> <span class="nav-text">选择排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#快速排序"><span class="nav-number">3.</span> <span class="nav-text">快速排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#归并排序"><span class="nav-number">4.</span> <span class="nav-text">归并排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#堆排序"><span class="nav-number">5.</span> <span class="nav-text">堆排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#调用"><span class="nav-number">5.1.</span> <span class="nav-text">调用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码"><span class="nav-number">5.2.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输出"><span class="nav-number">5.3.</span> <span class="nav-text">输出</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F"><span class="nav-number">1.</span> <span class="nav-text">冒泡排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F"><span class="nav-number">2.</span> <span class="nav-text">选择排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F"><span class="nav-number">3.</span> <span class="nav-text">快速排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F"><span class="nav-number">4.</span> <span class="nav-text">归并排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A0%86%E6%8E%92%E5%BA%8F"><span class="nav-number">5.</span> <span class="nav-text">堆排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B0%83%E7%94%A8"><span class="nav-number">5.1.</span> <span class="nav-text">调用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">5.2.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%87%BA"><span class="nav-number">5.3.</span> <span class="nav-text">输出</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">xiaxm.com</p>
+  <p class="site-author-name" itemprop="name">xiaxm</p>
   <div class="site-description" itemprop="description"></div>
 </div>
 <div class="site-state-wrap motion-element">
@@ -322,28 +315,23 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">11</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
 </div>
-  <div class="feed-link motion-element">
-    <a href="/atom.xml" rel="alternate">
-      <i class="fa fa-rss"></i>RSS
-    </a>
-  </div>
 
 
 
@@ -361,19 +349,18 @@
       <div class="footer-inner">
         
 
+        
+
 <div class="copyright">
   
-  &copy; 2018 – 
-  <span itemprop="copyrightYear">2019</span>
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
-    <i class="fa fa-user"></i>
+    <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">xiaxm.com</span>
+  <span class="author" itemprop="copyrightHolder">xiaxm</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a>
-  </div>
-  <span class="post-meta-divider">|</span>
-  <div class="theme-info">Theme – <a href="https://mist.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
   </div>
 
         
@@ -385,11 +372,6 @@
 
 
 
-
-
-
-
-        
       </div>
     </footer>
   </div>
@@ -398,14 +380,21 @@
   <script src="/lib/anime.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
 <script src="/js/schemes/muse.js"></script>
+
+
 <script src="/js/next-boot.js"></script>
 
 
 
-  
 
+  
 
 
 

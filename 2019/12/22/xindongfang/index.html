@@ -4,75 +4,45 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.0.0">
+<meta name="generator" content="Hexo 6.2.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
   <link rel="mask-icon" href="/images/logo.svg" color="#222">
-  <link rel="alternate" href="/atom.xml" title="xiaxm" type="application/atom+xml">
 
 <link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
 <script id="hexo-configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Mist',
-    version: '7.5.0',
-    exturl: false,
-    sidebar: {"position":"right","display":"post","offset":12,"onmobile":false},
-    copycode: {"enable":false,"show_result":false,"style":null},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
-    bookmark: {"enable":false,"color":"#222","save":"auto"},
-    fancybox: false,
-    mediumzoom: false,
-    lazyload: false,
-    pangu: false,
-    algolia: {
-      appID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: '',
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    translation: {
-      copy_button: 'Copy',
-      copy_success: 'Copied',
-      copy_failure: 'Copy failed'
-    },
-    sidebarPadding: 40
-  };
-</script>
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.xiaxm.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
 
   <meta name="description" content="整体来讲是一次比较失败的面试。虽然比较好的回答了少数的几个问题，但是毫无疑问，在很多的小的点上没有把握好，知其然不知其所以然。譬如为什么TIME_WAIT需要等待2MSL这么久，又如什么情况下HTTP会复用TCP链接？">
-<meta name="keywords" content="面试">
 <meta property="og:type" content="article">
 <meta property="og:title" content="新东方在线面试总结">
-<meta property="og:url" content="https:&#x2F;&#x2F;xiaxm.com&#x2F;2019&#x2F;12&#x2F;22&#x2F;xindongfang&#x2F;index.html">
+<meta property="og:url" content="https://blog.xiaxm.com/2019/12/22/xindongfang/index.html">
 <meta property="og:site_name" content="xiaxm">
 <meta property="og:description" content="整体来讲是一次比较失败的面试。虽然比较好的回答了少数的几个问题，但是毫无疑问，在很多的小的点上没有把握好，知其然不知其所以然。譬如为什么TIME_WAIT需要等待2MSL这么久，又如什么情况下HTTP会复用TCP链接？">
-<meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-12-23T13:42:15.458Z">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-12-22T15:29:32.000Z">
+<meta property="article:modified_time" content="2022-07-12T09:06:02.451Z">
+<meta property="article:author" content="xiaxm">
+<meta property="article:tag" content="面试">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://xiaxm.com/2019/12/22/xindongfang/">
+<link rel="canonical" href="https://blog.xiaxm.com/2019/12/22/xindongfang/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: false,
-    isPost: true,
-    isPage: false,
-    isArchive: false
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
   };
 </script>
 
@@ -115,18 +85,6 @@
 
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
-  <div class="site-meta">
-
-    <div>
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">xiaxm</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-        <p class="site-subtitle">Learning and Labor</p>
-  </div>
-
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="Toggle navigation bar">
       <span class="toggle-line toggle-line-first"></span>
@@ -134,25 +92,44 @@
       <span class="toggle-line toggle-line-last"></span>
     </div>
   </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">xiaxm</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Learning and Labor</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
 </div>
 
 
+
+
 <nav class="site-nav">
-  
-  <ul id="menu" class="menu">
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
-
-  </li>
+  <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
 
   </li>
   </ul>
-
 </nav>
+
+
+
+
 </div>
     </header>
 
@@ -168,19 +145,18 @@
         <div class="content-wrap">
           
 
-          <div class="content">
+          <div class="content post posts-expand">
             
 
-  <div class="posts-expand">
-      
+    
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
-    <link itemprop="mainEntityOfPage" href="https://xiaxm.com/2019/12/22/xindongfang/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://blog.xiaxm.com/2019/12/22/xindongfang/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="xiaxm.com">
+      <meta itemprop="name" content="xiaxm">
       <meta itemprop="description" content="">
     </span>
 
@@ -195,7 +171,7 @@
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
@@ -203,13 +179,11 @@
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
+                <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A0%81/" itemprop="url" rel="index">
-                    <span itemprop="name">编码</span>
-                  </a>
+                  <a href="/categories/%E7%BC%96%E7%A0%81/" itemprop="url" rel="index"><span itemprop="name">编码</span></a>
                 </span>
             </span>
 
@@ -225,22 +199,24 @@
 
       
         <p>整体来讲是一次比较失败的面试。虽然比较好的回答了少数的几个问题，但是毫无疑问，在很多的小的点上没有把握好，知其然不知其所以然。譬如为什么TIME_WAIT需要等待2MSL这么久，又如什么情况下HTTP会复用TCP链接？</p>
-<a id="more"></a>
+<span id="more"></span>
 
-<h2 id="问题整理"><a href="#问题整理" class="headerlink" title="问题整理"></a>问题整理</h2><h3 id="当前代码是否会发送邮件"><a href="#当前代码是否会发送邮件" class="headerlink" title="当前代码是否会发送邮件"></a>当前代码是否会发送邮件</h3><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">go</span> SendMail()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="问题整理"><a href="#问题整理" class="headerlink" title="问题整理"></a>问题整理</h2><h3 id="当前代码是否会发送邮件"><a href="#当前代码是否会发送邮件" class="headerlink" title="当前代码是否会发送邮件"></a>当前代码是否会发送邮件</h3><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">go</span> SendMail()</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <h4 id="解答"><a href="#解答" class="headerlink" title="解答"></a>解答</h4><p>不会发送邮件。main函数执行完毕或程序panic,表示当前golang程序进程已经终止，系统资源还给操作系统，所以go协程也释放了，不会执行相关操作</p>
-<h3 id="以下代码会发生什么"><a href="#以下代码会发生什么" class="headerlink" title="以下代码会发生什么"></a>以下代码会发生什么</h3><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> &#123;</span><br><span class="line">        <span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">        &#125;()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="以下代码会发生什么"><a href="#以下代码会发生什么" class="headerlink" title="以下代码会发生什么"></a>以下代码会发生什么</h3><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> &#123;</span><br><span class="line">        <span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">        &#125;()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <h4 id="解答-1"><a href="#解答-1" class="headerlink" title="解答"></a>解答</h4><p>理论协程可以创建无限个，除非系统资源不够。或者需要看协程执行了什么，什么时候释放，如果释放的够快，可以一直run下去。</p>
 <h3 id="channel-关闭后，继续入栈或出栈会出现什么问题"><a href="#channel-关闭后，继续入栈或出栈会出现什么问题" class="headerlink" title="channel 关闭后，继续入栈或出栈会出现什么问题"></a>channel 关闭后，继续入栈或出栈会出现什么问题</h3><h4 id="解答-2"><a href="#解答-2" class="headerlink" title="解答"></a>解答</h4><p>channel关闭后，可以读取channel中剩余的值，读取完后可以继续读取，得到的为channel类型的0值。关闭后插入会引起panic: send on closed channel</p>
-<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">ch := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">int</span>, <span class="number">3</span>)</span><br><span class="line"></span><br><span class="line">	ch &lt;- <span class="number">1</span></span><br><span class="line">	ch &lt;- <span class="number">2</span></span><br><span class="line">	ch &lt;- <span class="number">3</span></span><br><span class="line"></span><br><span class="line">	<span class="built_in">close</span>(ch)</span><br><span class="line">	<span class="keyword">for</span> value := <span class="keyword">range</span> ch &#123;</span><br><span class="line">		fmt.Println(<span class="string">"value:"</span>, value) <span class="comment">// 1 2 3 </span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	log.Println(&lt;-ch) <span class="comment">// 0 </span></span><br><span class="line"></span><br><span class="line">	ch &lt;- <span class="number">1</span> <span class="comment">//panic: send on closed channel</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">ch := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="type">int</span>, <span class="number">3</span>)</span><br><span class="line"></span><br><span class="line">	ch &lt;- <span class="number">1</span></span><br><span class="line">	ch &lt;- <span class="number">2</span></span><br><span class="line">	ch &lt;- <span class="number">3</span></span><br><span class="line"></span><br><span class="line">	<span class="built_in">close</span>(ch)</span><br><span class="line">	<span class="keyword">for</span> value := <span class="keyword">range</span> ch &#123;</span><br><span class="line">		fmt.Println(<span class="string">&quot;value:&quot;</span>, value) <span class="comment">// 1 2 3 </span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	log.Println(&lt;-ch) <span class="comment">// 0 </span></span><br><span class="line"></span><br><span class="line">	ch &lt;- <span class="number">1</span> <span class="comment">//panic: send on closed channel</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <h3 id="TIME-WAIT-为什么2MSL这么长"><a href="#TIME-WAIT-为什么2MSL这么长" class="headerlink" title="TIME_WAIT 为什么2MSL这么长"></a>TIME_WAIT 为什么2MSL这么长</h3><p>MSL报文最大生存时间.一般为2分钟。他是任何报文在网络上存在的最长时间，超过这个时间报文将被丢弃。<br>2MSL即两倍的MSL，TCP的TIME_WAIT状态也称为2MSL等待状态，当TCP的一端发起主动关闭，在发出最后一个ACK包后，即第3次握手完成后发送了第四次握手的ACK包后就进入了TIME_WAIT状态，必须在此状态上停留两倍的MSL时间，等待2MSL时间主要目的是怕最后一个ACK包对方没收到，那么对方在超时后将重发第三次握手的FIN包，主动关闭端接到重发的FIN包后可以再发一个ACK应答包。在TIME_WAIT状态时两端的端口不能使用，要等到2MSL时间结束才可继续使用。当连接处于2MSL等待阶段时任何迟到的报文段都将被丢弃。这样可以避免网络中的包影响下一次相同端口的链接。</p>
 <h3 id="什么情况下HTTP会复用TCP链接"><a href="#什么情况下HTTP会复用TCP链接" class="headerlink" title="什么情况下HTTP会复用TCP链接"></a>什么情况下HTTP会复用TCP链接</h3><p>HTTP 的header里有一个“Keep-Alive”参数，用来告知服务器：我想要保存此次连接，我稍后还会请求，这样我们可以避免再次TCP三次握手。</p>
 <p>保持存活（Keep Alive）不仅仅是HTTP中的概念，TCP中也有。不追究实现原理，单是它们所想达到的目的也是不同的：</p>
 <pre><code>HTTP中叫做“Keep-Alive”, 是为了连接复用，即减少多余的TCP请求
 
-TCP中叫做“KeepAlive”，是为了保证连接是健康的，如即时通讯技术需要用到</code></pre><h3 id="golang-相比于java的优势"><a href="#golang-相比于java的优势" class="headerlink" title="golang 相比于java的优势"></a>golang 相比于java的优势</h3><p>主要是线程模型</p>
+TCP中叫做“KeepAlive”，是为了保证连接是健康的，如即时通讯技术需要用到
+</code></pre>
+<h3 id="golang-相比于java的优势"><a href="#golang-相比于java的优势" class="headerlink" title="golang 相比于java的优势"></a>golang 相比于java的优势</h3><p>主要是线程模型</p>
 
     </div>
 
@@ -255,21 +231,18 @@ TCP中叫做“KeepAlive”，是为了保证连接是健康的，如即时通�
 
         
 
-          <div class="post-nav">
-            <div class="post-nav-next post-nav-item">
-                <a href="/2019/12/16/didi/" rel="next" title="滴滴面试总结">
-                  <i class="fa fa-chevron-left"></i> 滴滴面试总结
-                </a>
-            </div>
 
-            <span class="post-nav-divider"></span>
-
-            <div class="post-nav-prev post-nav-item">
-                <a href="/2019/12/23/rongdou/" rel="prev" title="溶豆制作过程">
-                  溶豆制作过程 <i class="fa fa-chevron-right"></i>
-                </a>
-            </div>
-          </div>
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/12/16/didi/" rel="prev" title="滴滴面试总结">
+      <i class="fa fa-chevron-left"></i> 滴滴面试总结
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/12/23/rongdou/" rel="next" title="溶豆制作过程">
+      溶豆制作过程 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
       </footer>
     
   </article>
@@ -277,11 +250,32 @@ TCP中叫做“KeepAlive”，是为了保证连接是健康的，如即时通�
   
   
 
-  </div>
 
 
           </div>
           
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
 
         </div>
           
@@ -306,13 +300,13 @@ TCP中叫做“KeepAlive”，是为了保证连接是健康的，如即时通�
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题整理"><span class="nav-number">1.</span> <span class="nav-text">问题整理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#当前代码是否会发送邮件"><span class="nav-number">1.1.</span> <span class="nav-text">当前代码是否会发送邮件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#解答"><span class="nav-number">1.1.1.</span> <span class="nav-text">解答</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#以下代码会发生什么"><span class="nav-number">1.2.</span> <span class="nav-text">以下代码会发生什么</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#解答-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">解答</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#channel-关闭后，继续入栈或出栈会出现什么问题"><span class="nav-number">1.3.</span> <span class="nav-text">channel 关闭后，继续入栈或出栈会出现什么问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#解答-2"><span class="nav-number">1.3.1.</span> <span class="nav-text">解答</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TIME-WAIT-为什么2MSL这么长"><span class="nav-number">1.4.</span> <span class="nav-text">TIME_WAIT 为什么2MSL这么长</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么情况下HTTP会复用TCP链接"><span class="nav-number">1.5.</span> <span class="nav-text">什么情况下HTTP会复用TCP链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#golang-相比于java的优势"><span class="nav-number">1.6.</span> <span class="nav-text">golang 相比于java的优势</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E6%95%B4%E7%90%86"><span class="nav-number">1.</span> <span class="nav-text">问题整理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BD%93%E5%89%8D%E4%BB%A3%E7%A0%81%E6%98%AF%E5%90%A6%E4%BC%9A%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6"><span class="nav-number">1.1.</span> <span class="nav-text">当前代码是否会发送邮件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%A3%E7%AD%94"><span class="nav-number">1.1.1.</span> <span class="nav-text">解答</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A5%E4%B8%8B%E4%BB%A3%E7%A0%81%E4%BC%9A%E5%8F%91%E7%94%9F%E4%BB%80%E4%B9%88"><span class="nav-number">1.2.</span> <span class="nav-text">以下代码会发生什么</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%A3%E7%AD%94-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">解答</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#channel-%E5%85%B3%E9%97%AD%E5%90%8E%EF%BC%8C%E7%BB%A7%E7%BB%AD%E5%85%A5%E6%A0%88%E6%88%96%E5%87%BA%E6%A0%88%E4%BC%9A%E5%87%BA%E7%8E%B0%E4%BB%80%E4%B9%88%E9%97%AE%E9%A2%98"><span class="nav-number">1.3.</span> <span class="nav-text">channel 关闭后，继续入栈或出栈会出现什么问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%A3%E7%AD%94-2"><span class="nav-number">1.3.1.</span> <span class="nav-text">解答</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TIME-WAIT-%E4%B8%BA%E4%BB%80%E4%B9%882MSL%E8%BF%99%E4%B9%88%E9%95%BF"><span class="nav-number">1.4.</span> <span class="nav-text">TIME_WAIT 为什么2MSL这么长</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%83%85%E5%86%B5%E4%B8%8BHTTP%E4%BC%9A%E5%A4%8D%E7%94%A8TCP%E9%93%BE%E6%8E%A5"><span class="nav-number">1.5.</span> <span class="nav-text">什么情况下HTTP会复用TCP链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#golang-%E7%9B%B8%E6%AF%94%E4%BA%8Ejava%E7%9A%84%E4%BC%98%E5%8A%BF"><span class="nav-number">1.6.</span> <span class="nav-text">golang 相比于java的优势</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">xiaxm.com</p>
+  <p class="site-author-name" itemprop="name">xiaxm</p>
   <div class="site-description" itemprop="description"></div>
 </div>
 <div class="site-state-wrap motion-element">
@@ -320,28 +314,23 @@ TCP中叫做“KeepAlive”，是为了保证连接是健康的，如即时通�
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">11</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
 </div>
-  <div class="feed-link motion-element">
-    <a href="/atom.xml" rel="alternate">
-      <i class="fa fa-rss"></i>RSS
-    </a>
-  </div>
 
 
 
@@ -359,19 +348,18 @@ TCP中叫做“KeepAlive”，是为了保证连接是健康的，如即时通�
       <div class="footer-inner">
         
 
+        
+
 <div class="copyright">
   
-  &copy; 2018 – 
-  <span itemprop="copyrightYear">2019</span>
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
-    <i class="fa fa-user"></i>
+    <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">xiaxm.com</span>
+  <span class="author" itemprop="copyrightHolder">xiaxm</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a>
-  </div>
-  <span class="post-meta-divider">|</span>
-  <div class="theme-info">Theme – <a href="https://mist.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
   </div>
 
         
@@ -383,11 +371,6 @@ TCP中叫做“KeepAlive”，是为了保证连接是健康的，如即时通�
 
 
 
-
-
-
-
-        
       </div>
     </footer>
   </div>
@@ -396,14 +379,21 @@ TCP中叫做“KeepAlive”，是为了保证连接是健康的，如即时通�
   <script src="/lib/anime.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
 <script src="/js/schemes/muse.js"></script>
+
+
 <script src="/js/next-boot.js"></script>
 
 
 
-  
 
+  
 
 
 

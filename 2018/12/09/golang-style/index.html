@@ -4,75 +4,45 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.0.0">
+<meta name="generator" content="Hexo 6.2.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
   <link rel="mask-icon" href="/images/logo.svg" color="#222">
-  <link rel="alternate" href="/atom.xml" title="xiaxm" type="application/atom+xml">
 
 <link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
 <script id="hexo-configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Mist',
-    version: '7.5.0',
-    exturl: false,
-    sidebar: {"position":"right","display":"post","offset":12,"onmobile":false},
-    copycode: {"enable":false,"show_result":false,"style":null},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
-    bookmark: {"enable":false,"color":"#222","save":"auto"},
-    fancybox: false,
-    mediumzoom: false,
-    lazyload: false,
-    pangu: false,
-    algolia: {
-      appID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: '',
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    translation: {
-      copy_button: 'Copy',
-      copy_success: 'Copied',
-      copy_failure: 'Copy failed'
-    },
-    sidebarPadding: 40
-  };
-</script>
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.xiaxm.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
 
   <meta name="description" content="一致性的代码更容易维护、是更合理的、需要更少的学习成本、并且随着新的约定出现或者出现错误后更容易迁移、更新、修复bug相反，风格不一致的代码库会导致维护成本开销、不确定性和认知偏差，这些都会直接维护成本增加、代码审查痛苦，代码的迁移或更新变得困难">
-<meta name="keywords" content="golang">
 <meta property="og:type" content="article">
 <meta property="og:title" content="golang 风格">
-<meta property="og:url" content="https:&#x2F;&#x2F;xiaxm.com&#x2F;2018&#x2F;12&#x2F;09&#x2F;golang-style&#x2F;index.html">
+<meta property="og:url" content="https://blog.xiaxm.com/2018/12/09/golang-style/index.html">
 <meta property="og:site_name" content="xiaxm">
 <meta property="og:description" content="一致性的代码更容易维护、是更合理的、需要更少的学习成本、并且随着新的约定出现或者出现错误后更容易迁移、更新、修复bug相反，风格不一致的代码库会导致维护成本开销、不确定性和认知偏差，这些都会直接维护成本增加、代码审查痛苦，代码的迁移或更新变得困难">
-<meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-12-23T05:54:22.704Z">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2018-12-09T06:55:51.000Z">
+<meta property="article:modified_time" content="2022-07-12T09:05:44.334Z">
+<meta property="article:author" content="xiaxm">
+<meta property="article:tag" content="golang">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://xiaxm.com/2018/12/09/golang-style/">
+<link rel="canonical" href="https://blog.xiaxm.com/2018/12/09/golang-style/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: false,
-    isPost: true,
-    isPage: false,
-    isArchive: false
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
   };
 </script>
 
@@ -115,18 +85,6 @@
 
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
-  <div class="site-meta">
-
-    <div>
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">xiaxm</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-        <p class="site-subtitle">Learning and Labor</p>
-  </div>
-
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="Toggle navigation bar">
       <span class="toggle-line toggle-line-first"></span>
@@ -134,25 +92,44 @@
       <span class="toggle-line toggle-line-last"></span>
     </div>
   </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">xiaxm</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Learning and Labor</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
 </div>
 
 
+
+
 <nav class="site-nav">
-  
-  <ul id="menu" class="menu">
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
-
-  </li>
+  <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
 
   </li>
   </ul>
-
 </nav>
+
+
+
+
 </div>
     </header>
 
@@ -168,19 +145,18 @@
         <div class="content-wrap">
           
 
-          <div class="content">
+          <div class="content post posts-expand">
             
 
-  <div class="posts-expand">
-      
+    
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
-    <link itemprop="mainEntityOfPage" href="https://xiaxm.com/2018/12/09/golang-style/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://blog.xiaxm.com/2018/12/09/golang-style/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="xiaxm.com">
+      <meta itemprop="name" content="xiaxm">
       <meta itemprop="description" content="">
     </span>
 
@@ -195,7 +171,7 @@
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
@@ -203,13 +179,11 @@
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
+                <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A0%81/" itemprop="url" rel="index">
-                    <span itemprop="name">编码</span>
-                  </a>
+                  <a href="/categories/%E7%BC%96%E7%A0%81/" itemprop="url" rel="index"><span itemprop="name">编码</span></a>
                 </span>
             </span>
 
@@ -225,31 +199,31 @@
 
       
         <p>一致性的代码更容易维护、是更合理的、需要更少的学习成本、并且随着新的约定出现或者出现错误后更容易迁移、更新、修复bug<br>相反，风格不一致的代码库会导致维护成本开销、不确定性和认知偏差，这些都会直接维护成本增加、代码审查痛苦，代码的迁移或更新变得困难</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <h2 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h2><p>将包、常量、变量和类型的声明各自放在同一组中</p>
-<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//错误的示例</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">"a"</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">"b"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> a = <span class="number">1</span></span><br><span class="line"><span class="keyword">const</span> b = <span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">1</span></span><br><span class="line"><span class="keyword">var</span> b = <span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> Area <span class="keyword">float64</span></span><br><span class="line"><span class="keyword">type</span> Volume <span class="keyword">float64</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//错误的示例</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;a&quot;</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;b&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> a = <span class="number">1</span></span><br><span class="line"><span class="keyword">const</span> b = <span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">1</span></span><br><span class="line"><span class="keyword">var</span> b = <span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> Area <span class="type">float64</span></span><br><span class="line"><span class="keyword">type</span> Volume <span class="type">float64</span></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//正确的示例</span></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">"a"</span></span><br><span class="line">    <span class="string">"b"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> (</span><br><span class="line">    a = <span class="number">1</span></span><br><span class="line">    b = <span class="number">2</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> (</span><br><span class="line">    a = <span class="number">1</span></span><br><span class="line">    b = <span class="number">2</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> (</span><br><span class="line">    Area <span class="keyword">float64</span></span><br><span class="line">    Volume <span class="keyword">float64</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//正确的示例</span></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">&quot;a&quot;</span></span><br><span class="line">    <span class="string">&quot;b&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> (</span><br><span class="line">    a = <span class="number">1</span></span><br><span class="line">    b = <span class="number">2</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> (</span><br><span class="line">    a = <span class="number">1</span></span><br><span class="line">    b = <span class="number">2</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> (</span><br><span class="line">    Area <span class="type">float64</span></span><br><span class="line">    Volume <span class="type">float64</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 
 <p>有且仅将相关的声明放在一组（不要将不相关的声明放在一组）</p>
-<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//错误的示例</span></span><br><span class="line"><span class="keyword">type</span> Operation <span class="keyword">int</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> (</span><br><span class="line">    Add Operation = <span class="literal">iota</span> + <span class="number">1</span></span><br><span class="line">    Subtract</span><br><span class="line">    Multiply</span><br><span class="line">    ENV_VAR = <span class="string">"MY_ENV"</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//错误的示例</span></span><br><span class="line"><span class="keyword">type</span> Operation <span class="type">int</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> (</span><br><span class="line">    Add Operation = <span class="literal">iota</span> + <span class="number">1</span></span><br><span class="line">    Subtract</span><br><span class="line">    Multiply</span><br><span class="line">    ENV_VAR = <span class="string">&quot;MY_ENV&quot;</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//正确的示例</span></span><br><span class="line"><span class="keyword">type</span> Operation <span class="keyword">int</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> (</span><br><span class="line">    Add Operation = <span class="literal">iota</span> + <span class="number">1</span></span><br><span class="line">    Subtract</span><br><span class="line">    Multiply</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ENV_VAR = <span class="string">"MY_ENV"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//正确的示例</span></span><br><span class="line"><span class="keyword">type</span> Operation <span class="type">int</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> (</span><br><span class="line">    Add Operation = <span class="literal">iota</span> + <span class="number">1</span></span><br><span class="line">    Subtract</span><br><span class="line">    Multiply</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ENV_VAR = <span class="string">&quot;MY_ENV&quot;</span></span><br></pre></td></tr></table></figure>
 
 <p>分组声明的位置没有限制（可以在函数体内或外部声明）</p>
-<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//错误的示例</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">f</span><span class="params">()</span> <span class="title">string</span></span> &#123;</span><br><span class="line">    <span class="keyword">var</span> red = color.New(<span class="number">0xff0000</span>)</span><br><span class="line">    <span class="keyword">var</span> green = color.New(<span class="number">0x00ff00</span>)</span><br><span class="line">    <span class="keyword">var</span> blue = color.New(<span class="number">0x0000ff</span>)</span><br><span class="line"></span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//错误的示例</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">f</span><span class="params">()</span></span> <span class="type">string</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> red = color.New(<span class="number">0xff0000</span>)</span><br><span class="line">    <span class="keyword">var</span> green = color.New(<span class="number">0x00ff00</span>)</span><br><span class="line">    <span class="keyword">var</span> blue = color.New(<span class="number">0x0000ff</span>)</span><br><span class="line"></span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//正确的示例</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">f</span><span class="params">()</span> <span class="title">string</span></span> &#123;</span><br><span class="line">    <span class="keyword">var</span> (</span><br><span class="line">        red   = color.New(<span class="number">0xff0000</span>)</span><br><span class="line">        green = color.New(<span class="number">0x00ff00</span>)</span><br><span class="line">        blue  = color.New(<span class="number">0x0000ff</span>)</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//正确的示例</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">f</span><span class="params">()</span></span> <span class="type">string</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> (</span><br><span class="line">        red   = color.New(<span class="number">0xff0000</span>)</span><br><span class="line">        green = color.New(<span class="number">0x00ff00</span>)</span><br><span class="line">        blue  = color.New(<span class="number">0x0000ff</span>)</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>倒入的包分为两组（使用goimports可以自动分组）</p>
 <ul>
 <li>系统官方库</li>
 <li>其他库</li>
 </ul>
-<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//错误的示例</span></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">"fmt"</span></span><br><span class="line">    <span class="string">"os"</span></span><br><span class="line">    <span class="string">"go.uber.org/atomic"</span></span><br><span class="line">    <span class="string">"golang.org/x/sync/errgroup"</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//错误的示例</span></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">&quot;fmt&quot;</span></span><br><span class="line">    <span class="string">&quot;os&quot;</span></span><br><span class="line">    <span class="string">&quot;go.uber.org/atomic&quot;</span></span><br><span class="line">    <span class="string">&quot;golang.org/x/sync/errgroup&quot;</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//正确的示例</span></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">"fmt"</span></span><br><span class="line">    <span class="string">"os"</span></span><br><span class="line"></span><br><span class="line">    <span class="string">"go.uber.org/atomic"</span></span><br><span class="line">    <span class="string">"golang.org/x/sync/errgroup"</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//正确的示例</span></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">&quot;fmt&quot;</span></span><br><span class="line">    <span class="string">&quot;os&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="string">&quot;go.uber.org/atomic&quot;</span></span><br><span class="line">    <span class="string">&quot;golang.org/x/sync/errgroup&quot;</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 
 <h2 id="排版"><a href="#排版" class="headerlink" title="排版"></a>排版</h2><p>一个完整的golang文件排版顺序应为：</p>
 <p>遵循的规则</p>
@@ -258,21 +232,23 @@
 <li>函数应按接收者分组</li>
 <li>到处的函数应该放在struct const var 定义后，且位于其他函数前</li>
 <li>普通工具函数位于末尾</li>
-<li>一般情况下，能明确类型时 不用指定类型。如 var a = “string”,如果需要转换类型，可以指定类型</li>
+<li>一般情况下，能明确类型时 不用指定类型。如 var a &#x3D; “string”,如果需要转换类型，可以指定类型</li>
 <li>未导出的顶层常量和变量，使用_作为前缀,未导出的错误值，以err为前缀</li>
 <li>嵌入式类型（例如 mutex）应位于结构体内的字段列表的顶部，下方空行分隔开</li>
 </ul>
-<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> name</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">"net/http"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> XYZ <span class="keyword">struct</span> &#123;</span><br><span class="line">    http.Client</span><br><span class="line"></span><br><span class="line">    version <span class="keyword">int</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> (</span><br><span class="line">    _a = <span class="literal">iota</span> +<span class="number">1</span></span><br><span class="line">    _b</span><br><span class="line">    _c</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> (</span><br><span class="line">    instance *XYZ</span><br><span class="line">    errOne error</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">// NewXYZ/newXYZ</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">NewXYZ</span><span class="params">()</span> *<span class="title">XYZ</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> instance == <span class="literal">nil</span> &#123;</span><br><span class="line">        instance = &amp;XYZ&#123;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(xyz *XYZ)</span><span class="title">func1</span><span class="params">()</span></span>&#123;...&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(xyz *XYZ)</span><span class="title">func2</span><span class="params">()</span></span>&#123;...&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">otherFunc</span><span class="params">()</span></span>&#123;...&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> name</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">&quot;net/http&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> XYZ <span class="keyword">struct</span> &#123;</span><br><span class="line">    http.Client</span><br><span class="line"></span><br><span class="line">    version <span class="type">int</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> (</span><br><span class="line">    _a = <span class="literal">iota</span> +<span class="number">1</span></span><br><span class="line">    _b</span><br><span class="line">    _c</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> (</span><br><span class="line">    instance *XYZ</span><br><span class="line">    errOne <span class="type">error</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">// NewXYZ/newXYZ</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">NewXYZ</span><span class="params">()</span></span> *XYZ&#123;</span><br><span class="line">    <span class="keyword">if</span> instance == <span class="literal">nil</span> &#123;</span><br><span class="line">        instance = &amp;XYZ&#123;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(xyz *XYZ)</span></span>func1()&#123;...&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(xyz *XYZ)</span></span>func2()&#123;...&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">otherFunc</span><span class="params">()</span></span>&#123;...&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <h2 id="命名"><a href="#命名" class="headerlink" title="命名"></a>命名</h2><h4 id="包名"><a href="#包名" class="headerlink" title="包名"></a>包名</h4><p>全小写，没有大写和下划线 表意明确，简短且简洁，不用复数，不要用语意不明确的词汇</p>
 <pre><code>//错误的命名
 util common urls encoding_json lib
 
 //正确的命名
-time json base64 url http strconv</code></pre><h4 id="包别名"><a href="#包别名" class="headerlink" title="包别名"></a>包别名</h4><p>如果包名称与导入路径的最后一个元素不匹配，则必须使用导入别名</p>
-<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//需要遵循的示例</span></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">"net/http"</span></span><br><span class="line"></span><br><span class="line">    client <span class="string">"example.com/client_go"</span></span><br><span class="line">    trace <span class="string">"example.com/trace/v2"</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+time json base64 url http strconv
+</code></pre>
+<h4 id="包别名"><a href="#包别名" class="headerlink" title="包别名"></a>包别名</h4><p>如果包名称与导入路径的最后一个元素不匹配，则必须使用导入别名</p>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//需要遵循的示例</span></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">&quot;net/http&quot;</span></span><br><span class="line"></span><br><span class="line">    client <span class="string">&quot;example.com/client_go&quot;</span></span><br><span class="line">    trace <span class="string">&quot;example.com/trace/v2&quot;</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 <p>如果倒入的包命名存在冲突，也需要使用别名</p>
-<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//需要遵循的示例</span></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">"fmt"</span></span><br><span class="line">    <span class="string">"os"</span></span><br><span class="line">    <span class="string">"runtime/trace"</span></span><br><span class="line"></span><br><span class="line">    nettrace <span class="string">"golang.net/x/trace"</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//需要遵循的示例</span></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">&quot;fmt&quot;</span></span><br><span class="line">    <span class="string">&quot;os&quot;</span></span><br><span class="line">    <span class="string">&quot;runtime/trace&quot;</span></span><br><span class="line"></span><br><span class="line">    nettrace <span class="string">&quot;golang.net/x/trace&quot;</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 <p>其他情况禁止使用别名</p>
 <h4 id="函数名"><a href="#函数名" class="headerlink" title="函数名"></a>函数名</h4><p>约定使用驼峰命名（MixedCaps 或 mixedCaps）。测试函数可以使用类似TestFunc_WhatIsBeingTested的命名方式</p>
 <h4 id="接口名"><a href="#接口名" class="headerlink" title="接口名"></a>接口名</h4><p>约定只包含一个方法的接口可以使用该方法的名称加er后缀来使用，如Reader、Writer</p>
@@ -292,21 +268,18 @@ time json base64 url http strconv</code></pre><h4 id="包别名"><a href="#包�
 
         
 
-          <div class="post-nav">
-            <div class="post-nav-next post-nav-item">
-                <a href="/2018/11/02/golang-basic/" rel="next" title="golang 基础">
-                  <i class="fa fa-chevron-left"></i> golang 基础
-                </a>
-            </div>
 
-            <span class="post-nav-divider"></span>
-
-            <div class="post-nav-prev post-nav-item">
-                <a href="/2019/01/10/golang-patterns/" rel="prev" title="golang 模式">
-                  golang 模式 <i class="fa fa-chevron-right"></i>
-                </a>
-            </div>
-          </div>
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/11/02/golang-basic/" rel="prev" title="golang 基础">
+      <i class="fa fa-chevron-left"></i> golang 基础
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/01/10/golang-patterns/" rel="next" title="golang 模式">
+      golang 模式 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
       </footer>
     
   </article>
@@ -314,11 +287,32 @@ time json base64 url http strconv</code></pre><h4 id="包别名"><a href="#包�
   
   
 
-  </div>
 
 
           </div>
           
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
 
         </div>
           
@@ -343,13 +337,13 @@ time json base64 url http strconv</code></pre><h4 id="包别名"><a href="#包�
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#声明"><span class="nav-number">1.</span> <span class="nav-text">声明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#排版"><span class="nav-number">2.</span> <span class="nav-text">排版</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#命名"><span class="nav-number">3.</span> <span class="nav-text">命名</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#包名"><span class="nav-number">3.0.1.</span> <span class="nav-text">包名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#包别名"><span class="nav-number">3.0.2.</span> <span class="nav-text">包别名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数名"><span class="nav-number">3.0.3.</span> <span class="nav-text">函数名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#接口名"><span class="nav-number">3.0.4.</span> <span class="nav-text">接口名</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取器"><span class="nav-number">3.1.</span> <span class="nav-text">获取器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#赋值"><span class="nav-number">4.</span> <span class="nav-text">赋值</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#空白标识符-The-blank-identifier"><span class="nav-number">4.1.</span> <span class="nav-text">空白标识符 The blank identifier</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A3%B0%E6%98%8E"><span class="nav-number">1.</span> <span class="nav-text">声明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%92%E7%89%88"><span class="nav-number">2.</span> <span class="nav-text">排版</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%91%BD%E5%90%8D"><span class="nav-number">3.</span> <span class="nav-text">命名</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8C%85%E5%90%8D"><span class="nav-number">3.0.1.</span> <span class="nav-text">包名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8C%85%E5%88%AB%E5%90%8D"><span class="nav-number">3.0.2.</span> <span class="nav-text">包别名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E5%90%8D"><span class="nav-number">3.0.3.</span> <span class="nav-text">函数名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8E%A5%E5%8F%A3%E5%90%8D"><span class="nav-number">3.0.4.</span> <span class="nav-text">接口名</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E5%99%A8"><span class="nav-number">3.1.</span> <span class="nav-text">获取器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B5%8B%E5%80%BC"><span class="nav-number">4.</span> <span class="nav-text">赋值</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A9%BA%E7%99%BD%E6%A0%87%E8%AF%86%E7%AC%A6-The-blank-identifier"><span class="nav-number">4.1.</span> <span class="nav-text">空白标识符 The blank identifier</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">xiaxm.com</p>
+  <p class="site-author-name" itemprop="name">xiaxm</p>
   <div class="site-description" itemprop="description"></div>
 </div>
 <div class="site-state-wrap motion-element">
@@ -357,28 +351,23 @@ time json base64 url http strconv</code></pre><h4 id="包别名"><a href="#包�
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">11</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
 </div>
-  <div class="feed-link motion-element">
-    <a href="/atom.xml" rel="alternate">
-      <i class="fa fa-rss"></i>RSS
-    </a>
-  </div>
 
 
 
@@ -396,19 +385,18 @@ time json base64 url http strconv</code></pre><h4 id="包别名"><a href="#包�
       <div class="footer-inner">
         
 
+        
+
 <div class="copyright">
   
-  &copy; 2018 – 
-  <span itemprop="copyrightYear">2019</span>
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
-    <i class="fa fa-user"></i>
+    <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">xiaxm.com</span>
+  <span class="author" itemprop="copyrightHolder">xiaxm</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a>
-  </div>
-  <span class="post-meta-divider">|</span>
-  <div class="theme-info">Theme – <a href="https://mist.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
   </div>
 
         
@@ -420,11 +408,6 @@ time json base64 url http strconv</code></pre><h4 id="包别名"><a href="#包�
 
 
 
-
-
-
-
-        
       </div>
     </footer>
   </div>
@@ -433,14 +416,21 @@ time json base64 url http strconv</code></pre><h4 id="包别名"><a href="#包�
   <script src="/lib/anime.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
 <script src="/js/schemes/muse.js"></script>
+
+
 <script src="/js/next-boot.js"></script>
 
 
 
-  
 
+  
 
 
 
